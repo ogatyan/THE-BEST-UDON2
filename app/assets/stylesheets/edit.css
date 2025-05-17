@@ -1,0 +1,75 @@
+.toukoucontainar{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* ← これで縦並び！ */
+    align-items: center; /* ← これで中央寄せ！ */
+    justify-content:space-around;
+    background-color: rgb(43, 58, 122);
+    font-size: 30px;
+    font-family: 'Kiwi Maru', serif; 
+}
+.shopname{
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    background-color: bisque;
+    border-radius:30px;
+}
+
+.foods{
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    background-color: bisque;
+    border-radius:30px;
+    margin-top: 10px;
+}
+
+.price{
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    background-color: bisque;
+    border-radius:30px;
+    margin-top: 10px;
+
+}
+
+.parking{
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    background-color: bisque;
+    border-radius:30px;
+    margin-top: 10px;
+
+}
+
+.openclose{
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    background-color: bisque;
+    border-radius:30px;
+    margin-top: 10px;
+}
+
+.shopplace{
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    background-color: bisque;
+    border-radius:30px;
+    margin-top: 10px;
+}
+
+.hensyuu{
+    width: 200px;
+    height: 100px;
+}
+
+
+
+
+

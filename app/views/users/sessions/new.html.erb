@@ -1,0 +1,25 @@
+<div class="logincontainar">
+  <div class="loginblock">
+    <h2>ログイン</h2>
+  </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="fielda">
+      <%= f.label :メールアドレス %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="fieldb">
+      <%= f.label :パスワード %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "ログインする" %>
+    </div>
+
+
+  <% end %>
+    <div class="backforget">
+      <%= render "users/shared/links" %>
+    </div>
+</div>

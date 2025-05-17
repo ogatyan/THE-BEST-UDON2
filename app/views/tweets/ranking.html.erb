@@ -1,0 +1,196 @@
+<h3>一覧ページ</h3>
+<%= link_to "新規投稿へ", new_tweet_path %>
+
+
+<h3>総合ランキング</h3>
+↓総合ランキング用のページ
+<div class="tweets-container">
+    <% @rank_sougou.each_with_index do |t, rank| %>
+        <% if t.user.image.attached? %>
+            <%= image_tag  t.user.image, size: '250x200'%>
+        <% end %>
+        <div class="tweet">
+            <% if t.image.attached? %>
+                <%= image_tag t.image, size: '250x200'%>
+            <% end %>
+
+             <%= t.shop_name %>
+            <%= t.shop_place %>
+            <%= t.foods %>
+            <%= t.price %>
+            <%= t.parking %>
+            <%= t.open_close %>
+            <%= link_to t.user.name, user_path(t.user.id) %>
+             <%= t.user.email %>
+             総合いいね<%= t.total_likes %>
+ 　         <% if user_signed_in? %>
+                <% if current_user.prefecture == "香川県民" %>
+                     <% if current_user.already_liked?(t) %>
+                         <%= link_to tweet_kennai_path(id: t.id, tweet_id: t.id), method: :delete  do %>
+                             県内いいねを取り消す<%= t.kennais.count %>
+                         <% end %>
+                    <% else %>
+                        <%= link_to tweet_kennais_path(id: t.id, tweet_id: t.id), method: :post do %>
+                             県内いいね<%= t.kennais.count %>
+                        <% end %>
+                     <% end %>
+                <% else %>
+                県内いいねの数  <%= t.kennais.count %>
+                <% end %>
+            <% else %>
+                県内いいねの数  <%= t.kennais.count %>
+            <% end %>
+            <% if user_signed_in? %>
+                <% if current_user.prefecture == "県外" %>
+                    <% if current_user.already_kengaied?(t) %>
+                        <%= link_to tweet_kengai_path(id: t.id, tweet_id: t.id), method: :delete do %>
+                             県外いいねを取り消す<%= t.kengais.count %>
+                        <% end %>
+                    <% else %>
+                        <%= link_to tweet_kengais_path(id: t.id, tweet_id: t.id), method: :post do %>
+                            県外いいね<%= t.kengais.count %>
+                        <% end %>
+                    <% end %>
+                <% else %>
+                県外いいねの数  <%= t.kengais.count %>
+                <% end %>
+            <% else %>
+                県外いいねの数  <%= t.kengais.count %>
+             <% end %>
+
+            <%= link_to "詳細へ", tweet_path(t.id) %>
+            <%= link_to "編集する", edit_tweet_path(t.id) %>
+            <%= button_to "削除する", tweet_path(t.id), method: :delete %> 
+        </div>
+    <% end %>
+</div>
+
+<h3>県内用のランキング</h3>
+↓controllerのdeftopで引き渡された関数を参照
+<% @rank_kennais.each do |t| %>
+<% if t.user.image.attached? %>
+            <%= image_tag  t.user.image, size: '250x200'%>
+        <% end %>
+        <div class="tweet">
+            <% if t.image.attached? %>
+                <%= image_tag t.image, size: '250x200'%>
+            <% end %>
+
+             <%= t.shop_name %>
+            <%= t.shop_place %>
+            <%= t.foods %>
+            <%= t.price %>
+            <%= t.parking %>
+            <%= t.open_close %>
+            <%= link_to t.user.name, user_path(t.user.id) %>
+             <%= t.user.email %>
+             総合いいね<%= t.total_likes %>
+ 　         <% if user_signed_in? %>
+                <% if current_user.prefecture == "香川県民" %>
+                     <% if current_user.already_liked?(t) %>
+                         <%= link_to tweet_kennai_path(id: t.id, tweet_id: t.id), method: :delete  do %>
+                             県内いいねを取り消す<%= t.kennais.count %>
+                         <% end %>
+                    <% else %>
+                        <%= link_to tweet_kennais_path(id: t.id, tweet_id: t.id), method: :post do %>
+                             県内いいね<%= t.kennais.count %>
+                        <% end %>
+                     <% end %>
+                <% else %>
+                県内いいねの数  <%= t.kennais.count %>
+                <% end %>
+            <% else %>
+                県内いいねの数  <%= t.kennais.count %>
+            <% end %>
+            <% if user_signed_in? %>
+                <% if current_user.prefecture == "県外" %>
+                    <% if current_user.already_kengaied?(t) %>
+                        <%= link_to tweet_kengai_path(id: t.id, tweet_id: t.id), method: :delete do %>
+                             県外いいねを取り消す<%= t.kengais.count %>
+                        <% end %>
+                    <% else %>
+                        <%= link_to tweet_kengais_path(id: t.id, tweet_id: t.id), method: :post do %>
+                            県外いいね<%= t.kengais.count %>
+                        <% end %>
+                    <% end %>
+                <% else %>
+                県外いいねの数  <%= t.kengais.count %>
+                <% end %>
+            <% else %>
+                県外いいねの数  <%= t.kengais.count %>
+             <% end %>
+
+            <%= link_to "詳細へ", tweet_path(t.id) %>
+            <%= link_to "編集する", edit_tweet_path(t.id) %>
+            <%= button_to "削除する", tweet_path(t.id), method: :delete %> 
+        </div>
+<% end %>
+
+<h3>県外ランキング</h3>
+<% @rank_kengais.each do |t| %>
+    <% if t.user.image.attached? %>
+            <%= image_tag  t.user.image, size: '250x200'%>
+        <% end %>
+        <div class="tweet">
+            <% if t.image.attached? %>
+                <%= image_tag t.image, size: '250x200'%>
+            <% end %>
+
+             <%= t.shop_name %>
+            <%= t.shop_place %>
+            <%= t.foods %>
+            <%= t.price %>
+            <%= t.parking %>
+            <%= t.open_close %>
+            <%= link_to t.user.name, user_path(t.user.id) %>
+             <%= t.user.email %>
+             総合いいね<%= t.total_likes %>
+ 　         <% if user_signed_in? %>
+                <% if current_user.prefecture == "香川県民" %>
+                     <% if current_user.already_liked?(t) %>
+                         <%= link_to tweet_kennai_path(id: t.id, tweet_id: t.id), method: :delete  do %>
+                             県内いいねを取り消す<%= t.kennais.count %>
+                         <% end %>
+                    <% else %>
+                        <%= link_to tweet_kennais_path(id: t.id, tweet_id: t.id), method: :post do %>
+                             県内いいね<%= t.kennais.count %>
+                        <% end %>
+                     <% end %>
+                <% else %>
+                県内いいねの数  <%= t.kennais.count %>
+                <% end %>
+            <% else %>
+                県内いいねの数  <%= t.kennais.count %>
+            <% end %>
+            <% if user_signed_in? %>
+                <% if current_user.prefecture == "県外" %>
+                    <% if current_user.already_kengaied?(t) %>
+                        <%= link_to tweet_kengai_path(id: t.id, tweet_id: t.id), method: :delete do %>
+                             県外いいねを取り消す<%= t.kengais.count %>
+                        <% end %>
+                    <% else %>
+                        <%= link_to tweet_kengais_path(id: t.id, tweet_id: t.id), method: :post do %>
+                            県外いいね<%= t.kengais.count %>
+                        <% end %>
+                    <% end %>
+                <% else %>
+                県外いいねの数  <%= t.kengais.count %>
+                <% end %>
+            <% else %>
+                県外いいねの数  <%= t.kengais.count %>
+             <% end %>
+
+            <%= link_to "詳細へ", tweet_path(t.id) %>
+            <%= link_to "編集する", edit_tweet_path(t.id) %>
+            <%= button_to "削除する", tweet_path(t.id), method: :delete %> 
+        </div>       
+<% end %>
+
+
+
+<% if user_signed_in? %>
+  <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+<% else %>
+  <li><%= link_to "新規登録", new_user_registration_path %></li>
+  <li><%= link_to "ログイン", new_user_session_path %></li>
+<% end %>

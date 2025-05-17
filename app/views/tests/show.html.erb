@@ -1,0 +1,75 @@
+
+<% case @test.result_type %>
+<% when "dashi" %>
+<div class="udondashibox">
+  <h2>あなたのタイプは、、、</h2>
+  <div class="dashi-type-title">
+    <span>出汁マニアタイプ｜「一滴の出汁に人生を感じる」</span>
+  </div>
+  <div class="dashi-content">
+    <p>
+      香りと旨味が命。出汁を飲み干してこそうどん。<br>
+      店を選ぶ基準は出汁。朝うどんで出汁チャージする人も多い…かも。
+    </p>
+  </div>
+</div>
+<% when "kosi" %>
+<div class="udonkoshibox">
+  <h2>あなたのタイプは</h2>
+  <div class="dashi-type-title">
+    <span>コシ命タイプ｜「歯ごたえがすべて！」</span>
+  </div>
+  <div class="koshi-content">
+    <p>
+      噛みしめるたびに感動したいあなた。<br>
+      讃岐うどんの力強いコシを追い求め、<br>
+      トッピングより麺そのものに全力。
+    </p>
+  </div>
+</div>
+<% when "guzai" %> 
+<div class="udonguzaibox">
+  <h2>あなたのタイプは、、、</h2>
+  <div class="guzai-type-title">
+    <span>具材重視タイプ｜「うどんはキャンバス、トッピングは芸術」</span>
+  </div>
+  <div class="guzai-content">
+    <p>
+      ちくわ・ゲソ天・えび天・唐揚げ・温玉・ワカメ・ネギ・生姜…<br>
+      今日はどれをのせようか。<br>
+      うどんはキャンバス。具材こそがアート。<br>
+      気分と季節で色を変える、あなただけの“うどんギャラリー”。
+    </p>
+  </div>
+</div>
+
+<% when "speed" %>
+<div class="udonspeedbox">
+  <h2>あなたのタイプは、、、</h2>
+  <div class="speed-type-title">
+    <span>スピード派タイプ｜「5分で旨い！それが正義」</span>
+  </div>
+  <div class="guzai-content">
+    <p>
+    「5分で入店、5分で満足。」<br>
+      求めるのは贅沢じゃない、うまさの即効性。<br>
+      “さっと食べて、しゃっと出る”が美学なあなたは、<br>
+      回転率こそ正義の、うどんスプリンター！
+    </p>
+  </div>
+</div>
+
+<% else %>
+  <div class="udonneutralbox">
+    <h2>あなたのタイプは、、、</h2>
+    <div class="neutral-type-title">
+      <span>❓該当なし｜「うどんへの愛がカオスすぎる」</span>
+    </div>
+    <div class="guzai-content">
+      <p>
+        こだわりが多すぎる or 無さすぎるあなたは、型にはまらないニュートラルうどん人間。<br>
+        新しいタイプかも。
+      </p>
+    </div>
+  </div>
+<% end %>

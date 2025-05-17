@@ -1,0 +1,225 @@
+<div class ="test-form">
+  <div class ="udontoukouform">
+    <h1>-うどん診断フォーム-</h1>
+  </div>
+  <%= form_with model: @test, local: true do |f| %>
+    <!-- Q1 -->
+    <div class ="question-containar">
+      <div class = "question"><p>Q1.うどんを食べるとき、出汁の味わいで一番大事にしたいのは？</p></div>
+      <div class = "answer-containar">
+        <div class ="answer">
+          <input type="radio" id="q1_koi" name="question1" value="2" />
+          <label for="q1_koi">いりこや鰹の出汁がガツンと効いた濃いめが好き</label>
+        </div>
+        <div class ="answer">
+          <input type="radio" id="q1_koi2" name="question1" value="1" />
+          <label for="q1_koi2">柔らかくて優しい味の出汁がいい</label>
+        </div>
+        <div class ="answer">
+        <input type="radio" id="q1_koi3" name="question1" value="0" />
+        <label for="q1_koi3">特にこだわりはない</label>
+        </div>
+      </div>
+    </div>
+    <!-- Q2 -->
+<div class="question-containar">
+  <div class="question"><p>Q2.うどんの出汁、最後までどうしてる？</p></div>
+  <div class="answer-containar">
+    <div class="answer">
+      <%= f.radio_button :question2, 2, id: "q2_ans1" %>
+      <label for="q2_ans1">毎回全部飲み干してる。むしろ出汁がメイン</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question2, 1, id: "q2_ans2" %>
+      <label for="q2_ans2">少しは飲むけど、全部は飲まないかな</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question2, 0, id: "q2_ans3" %>
+      <label for="q2_ans3">出汁は基本的に麺に絡めるだけでOK</label>
+    </div>
+  </div>
+</div>
+<!-- Q3 -->
+<div class="question-containar">
+  <div class="question"><p>Q3.出汁の温度、どっち派？</p></div>
+  <div class="answer-containar">
+    <div class="answer">
+      <%= f.radio_button :question3, 2, id: "q3_ans1" %>
+      <label for="q3_ans1">熱々じゃないと物足りない！</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question3, 1, id: "q3_ans2" %>
+      <label for="q3_ans2">ひやあつ or ぬるめくらいが一番ちょうどいい</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question3, 0, id: "q3_ans3" %>
+      <label for="q3_ans3">早く食べられればそれでいい</label>
+    </div>
+  </div>
+</div>
+<!-- Q4 -->
+<div class="question-containar">
+  <div class="question"><p>Q4. うどんの「コシ」どれくらい欲しい？</p></div>
+  <div class="answer-containar">
+    <div class="answer">
+      <%= f.radio_button :question4, 2, id: "q4_ans1" %>
+      <label for="q4_ans1">ガッツリ強いコシ</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question4, 1, id: "q4_ans2" %>
+      <label for="q4_ans2">もちっとしながらコシもあるのが理想的</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question4, 0, id: "q4_ans3" %>
+      <label for="q4_ans3">つるっと軽めに食べられる柔らかい系</label>
+    </div>
+  </div>
+</div>
+<!-- Q5 -->
+<div class="question-containar">
+  <div class="question"><p>Q5.麺の太さ、どれくらいが好み？</p></div>
+  <div class="answer-containar">
+    <div class="answer">
+      <%= f.radio_button :question5, 2, id: "q5_ans1" %>
+      <label for="q5_ans1">極太！うどんの重みを感じたい</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question5, 1, id: "q5_ans2" %>
+      <label for="q5_ans2">太めでモチモチ、歯ごたえ重視</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question5, 0, id: "q5_ans3" %>
+      <label for="q5_ans3">柔らかめが良い</label>
+    </div>
+  </div>
+</div>
+<!-- Q6 -->
+<div class="question-containar">
+  <div class="question"><p>Q6.麺の締め加減どんなのが好き？</p></div>
+  <div class="answer-containar">
+    <div class="answer">
+      <%= f.radio_button :question6, 2, id: "q6_ans1" %>
+      <label for="q6_ans1">冷水でギュッと締めた麺が一番！（冷やし系 or ひやあつ好き）</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question6, 1, id: "q6_ans2" %>
+      <label for="q6_ans2">温かい麺でふんわり感を味わいたい（あつあつ派）</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question6, 0, id: "q6_ans3" %>
+      <label for="q6_ans3">ぬるめの麺でまろやかに（あつひや・ひやあつ）</label>
+    </div>
+  </div>
+</div>
+<!-- Q7 -->
+<div class="question-containar">
+  <div class="question"><p>Q7.うどんに何をトッピングしたくなる？</p></div>
+  <div class="answer-containar">
+    <div class="answer">
+      <%= f.radio_button :question7, 2, id: "q7_ans1" %>
+      <label for="q7_ans1">天ぷら（ちくわ・えび・かき揚げ）</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question7, 1, id: "q7_ans2" %>
+      <label for="q7_ans2">生卵・温玉</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question7, 0, id: "q7_ans3" %>
+      <label for="q7_ans3">わかめ・ねぎなど薬味でシンプルに</label>
+    </div>
+  </div>
+</div>
+<!-- Q8 -->
+<div class="question-containar">
+  <div class="question"><p>Q8. トッピングの数は？</p></div>
+  <div class="answer-containar">
+    <div class="answer">
+      <%= f.radio_button :question8, 2, id: "q8_ans1" %>
+      <label for="q8_ans1">3種類以上</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question8, 1, id: "q8_ans2" %>
+      <label for="q8_ans2">1〜2種類</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question8, 0, id: "q8_ans3" %>
+      <label for="q8_ans3">トッピングなし</label>
+    </div>
+  </div>
+</div>
+<!-- Q9 -->
+<div class="question-containar">
+  <div class="question"><p>Q9. 「うどん＝ご馳走」だと思う？</p></div>
+  <div class="answer-containar">
+    <div class="answer">
+      <%= f.radio_button :question9, 2, id: "q9_ans1" %>
+      <label for="q9_ans1">思う（トッピングが多いほど幸せ）</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question9, 1, id: "q9_ans2" %>
+      <label for="q9_ans2">まあまあ</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question9, 0, id: "q9_ans3" %>
+      <label for="q9_ans3">軽食って感じ</label>
+    </div>
+  </div>
+</div>
+<!-- Q10 -->
+<div class="question-containar">
+  <div class="question"><p>Q10. うどん屋の滞在時間は？</p></div>
+  <div class="answer-containar">
+    <div class="answer">
+      <%= f.radio_button :question10, 2, id: "q10_ans1" %>
+      <label for="q10_ans1">5分以内でサッと出たい</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question10, 1, id: "q10_ans2" %>
+      <label for="q10_ans2">ゆっくり味わって15分くらい</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question10, 0, id: "q10_ans3" %>
+      <label for="q10_ans3">並んでも1時間OK！名店を巡るのが趣味！</label>
+    </div>
+  </div>
+</div>
+<!-- Q11 -->
+<div class="question-containar">
+  <div class="question"><p>Q11. 食べる場所は？</p></div>
+  <div class="answer-containar">
+    <div class="answer">
+      <%= f.radio_button :question11, 2, id: "q11_ans1" %>
+      <label for="q11_ans1">家族と行ける店</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question11, 1, id: "q11_ans2" %>
+      <label for="q11_ans2">ローカルなうどん屋</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question11, 0, id: "q11_ans3" %>
+      <label for="q11_ans3">誰もが行く超人気店</label>
+    </div>
+  </div>
+</div>
+<!-- Q12 -->
+<div class="question-containar">
+  <div class="question"><p>Q12.うどん、どの時間に食べるのが好き？</p></div>
+  <div class="answer-containar">
+    <div class="answer">
+      <%= f.radio_button :question12, 2, id: "q12_ans1" %>
+      <label for="q12_ans1">朝うどん！（朝イチからうどん行ける）</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question12, 1, id: "q12_ans2" %>
+      <label for="q12_ans2">昼が定番！</label>
+    </div>
+    <div class="answer">
+      <%= f.radio_button :question12, 0, id: "q12_ans3" %>
+      <label for="q12_ans3">夜うどん気になるかも</label>
+    </div>
+  </div>
+</div>
+<div class = "submit-containar">
+  <%= f.submit "診断する", class: "submit-button" %>
+  <% end %>
+</div>

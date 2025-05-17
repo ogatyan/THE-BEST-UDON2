@@ -1,0 +1,41 @@
+<div class="postlist">
+  <h1 class="main-title">THE BEST UDON</h1>
+  <h3 class="sub-title">うどん詳細ページ</h3>
+  <div class="nav-links">
+    <%= link_to "うどん投稿へ", new_tweet_path, class: "nav-link" %>
+    <%= link_to "トップページへ", tweets_top_path, class: "nav-link" %>
+  </div>
+</div>
+<div class="tweet-show-container">
+  <div class="left-section">
+    <% if @tweet.image.attached? %>
+      <%= image_tag @tweet.image, class: 'udon-image' %>
+    <% end %>
+    <%= link_to (current_user.already_liked?(@tweet) ? tweet_kennai_path(id: @tweet.id, tweet_id: @tweet.id) : tweet_kennais_path(id: @tweet.id, tweet_id: @tweet.id)),
+                method: (current_user.already_liked?(@tweet) ? :delete : :post), class: "like-button kennaigood" do %>
+      <i class="fa-solid fa-heart"></i>
+      <span><%= @tweet.kennais.count %></span>
+    <% end %>
+    <%= link_to (current_user.already_kengaied?(@tweet) ? tweet_kengai_path(id: @tweet.id, tweet_id: @tweet.id) : tweet_kengais_path(id: @tweet.id, tweet_id: @tweet.id)),
+                method: (current_user.already_kengaied?(@tweet) ? :delete : :post), class: "like-button kengaiigood" do %>
+      <i class="fa-solid fa-heart"></i>
+      <span><%= @tweet.kengais.count %></span>
+    <% end %>
+    <% if current_user&.id == @tweet.user_id %>
+      <div class="action-buttons">
+        <%= link_to "編集", edit_tweet_path(@tweet), class: "edit-button" %>
+        <%= button_to "削除", tweet_path(@tweet), method: :delete, class: "delete-button" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="right-section">
+    <div class="tweet-detail"><span class="label">ジャンル</span><%= blank_or_dash(@tweet.genre) %></div>
+    <div class="tweet-detail"><span class="label">店名</span><%= blank_or_dash(@tweet.shop_name) %></div>
+    <div class="tweet-detail"><span class="label">場所</span><%= blank_or_dash(@tweet.shop_place) %></div>
+    <div class="tweet-detail"><span class="label">品名</span><%= blank_or_dash(@tweet.foods) %></div>
+    <div class="tweet-detail"><span class="label">値段</span><%= blank_or_dash(@tweet.price) %></div>
+    <div class="tweet-detail"><span class="label">駐車場</span><%= blank_or_dash(@tweet.parking) %></div>
+    <div class="tweet-detail"><span class="label">来店時間</span><%= blank_or_dash(@tweet.open_close) %></div>
+    <div class="tweet-detail"><span class="label">投稿者</span><%= link_to @tweet.user.name, user_path(@tweet.user) %></div>
+  </div>
+</div>

@@ -1,0 +1,591 @@
+/* 新規登録画面 */
+.registercontainar {
+    width: 100%;
+    height: 100vh;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* 中央寄せ */
+    background-image: url('/assets/haikei.png');
+    background-size: cover; /* 画像を親要素に合わせて調整 */
+    font-family: 'Kiwi Maru', serif;
+    color: #fff; /* テキストカラー */
+}
+
+/* 登録セクション */
+.registerblock {
+    position: relative;
+    padding: 50px;
+    border-radius: 10px;
+    font-size: 36px;
+    color: rgb(212, 225, 238);
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 100px;
+    overflow: hidden; /* 背景画像が親要素をはみ出さないようにする */
+    background-image: url('/assets/smallrogo.png');
+    background-size: cover; /* 画像を親要素に合わせて調整 */
+    background-position: center;
+    border: 2px solid #2c363d;
+}
+/* 新規登録の文字 */
+.registerblock h2 {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: transparent; /* テキスト色を透明に */
+  background-image: linear-gradient(120deg, #001933, #00ccff, #ff00cc, #00ccff, #001933);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text; /* Safari対応 */
+  animation: shineText 5s linear infinite;
+  text-align: center;
+  
+}
+
+/* フォームの情報 */
+.yourinfotmation {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px; /* 最大幅を設定 */
+    padding: 20px;
+}
+
+/* ニックネーム＆出身地セクション */
+.nicknamefrom {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* フィールド間のスペースを調整 */
+}
+
+/* 入力フィールド */
+.field1, .field2, .field3, .field4, .field5 {
+    font-size: 18px;
+    background-color: rgb(78, 78, 78); /* 背景色をそのまま使用 */
+    border-radius: 30px;
+    padding: 12px;
+    margin: 12px 0;
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #2c363d;
+    transition: all 0.3s ease-in-out;
+}
+
+/* フォーカス時 */
+.field1:focus, .field2:focus, .field3:focus, .field4:focus, .field5:focus {
+    outline: none;
+    border-color: #00ccff;
+    box-shadow: 0 0 5px rgba(0, 204, 255, 0.6);
+}
+
+/* ボタン */
+.regactions input[type="submit"] {
+    font-size: 20px;
+    font-family: 'Kiwi Maru', serif;
+    background-color: #00ccff;
+    color: #fff;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.regactions input[type="submit"]:hover {
+    background-color: #59ec2d;
+}
+
+/* レスポンシブデザイン */
+@media screen and (max-width: 600px) {
+    .nicknamefrom {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .field1, .field2, .field3, .field4, .field5 {
+        font-size: 16px;
+        padding: 10px;
+    }
+    
+    .registerblock {
+        padding: 30px;
+        font-size: 28px;
+    }
+    .a{
+        font-size: 20px;
+        background-color: #00ccff;
+        color: #fff;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+    
+}
+.link-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #00ccff;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 20px;
+    font-family: 'Kiwi Maru', serif;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+  
+.link-button:hover {
+    transform: scale(1.03);
+    background-color: #59ec2d;
+    color: #fff;
+    text-decoration-line: none;
+}
+
+/* ログイン画面 */
+.logincontainar {
+    width: 100%;
+    height: 100vh;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/assets/haikei2.png');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Kiwi Maru', serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.loginblock {
+    background-image: url('/assets/smallrogo.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 50px;
+    border-radius: 100px;
+    border: 2px solid #2c363d;
+    font-size: 36px;
+    color: rgb(212, 225, 238);
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.loginblock h2 {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: transparent; /* テキスト色を透明に */
+  background-image: linear-gradient(120deg, #001933, #00ccff, #ff00cc, #00ccff, #001933);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text; /* Safari対応 */
+  animation: shineText 5s linear infinite;
+  text-align: center;
+  
+}
+
+@keyframes shineText {
+  0% {
+    background-position: -100% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+
+/* 入力フィールド */
+.fielda, .fieldb, .fieldc {
+    padding: 10px;
+    margin: 10px;
+    background-color: #f0f0f1;
+    border: 2px solid #2c363d;
+    border-radius: 20px;
+}
+
+.fielda input,
+.fieldb input,
+.fieldc input {
+    font-size: 18px;
+    background-color: rgb(78, 78, 78);
+    border-radius: 30px;
+    padding: 12px;
+    margin: 12px 0;
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #2c363d;
+    color: #e6d845;
+    transition: all 0.3s ease-in-out;
+}
+
+.fielda input:focus,
+.fieldb input:focus,
+.fieldc input:focus {
+    outline: none;
+    border-color: #00ccff;
+    box-shadow: 0 0 5px rgba(0, 204, 255, 0.6);
+}
+
+/* ボタンスタイル */
+.actions input[type="submit"] {
+    font-size: 20px;
+    font-family: 'Kiwi Maru', serif;
+    background-color: #00ccff;
+    color: #ffffff;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.actions input
+
+
+  
+
+ /* 新規うどん投稿*/ 
+  .newpagetitle {
+    font-size: 3em;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: bold;
+    border-bottom: 3px double #ffffff;
+    padding-bottom: 10px;
+    font-family: 'Kiwi Maru', serif;
+  }
+  
+  h3 {
+    font-size: 1.5em;
+    text-align: center;
+    color: #e9e9e9;
+    margin-bottom: 30px;
+    font-family: 'Kiwi Maru', serif;
+  }
+  
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: transparent;
+    padding: 30px;
+    border-radius: 10px;
+  }
+  
+  .field {
+    margin-bottom: 20px;
+  }
+  
+  .field label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .field input[type="text"],
+  .field input[type="number"],
+  .field select,
+  .field input[type="file"],
+  .field input[type="email"],
+  .field input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+  .field select {
+    background-color: #366085; 
+    color: #ffffff; 
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1em;
+}
+  
+  .field input::placeholder {
+    color: #d0d0d0;
+  }
+  
+  input[type="submit"] {
+    background-color: #ffffff;
+    color: #204b76;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    display: block;
+    margin: 30px auto 10px auto;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #59ec2d;
+    transform: scale(1.05);
+  }
+
+  a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    color: #b6b602;
+  }
+  header a:hover{
+    color: #6d706c;
+    text-decoration-line: none;
+  }
+.backforget{
+    background-image: url('/assets/backforget.png');
+    background-size: cover;
+    border-radius: 8px;
+    padding: 10px;
+    width: 20%;
+    height: 100pxx;
+    background-color: #85898a;
+    border: 2px solid #2c363d;
+}
+
+
+
+  /* 診断機能 */
+.test-form {
+  background: linear-gradient(-45deg, #003366, #004080, #0059b3, #0073e6);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  color: white;
+}
+
+/* 背景グラデーションを滑らかに動かすアニメーション */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.udontoukouform {
+  text-align: center;
+  font-family: 'Kiwi Maru', serif;
+  font-size: 30px;
+  background: linear-gradient(-45deg, #1c2e4a, #2a4d6f, #3b5f87, #1c2e4a);
+  background-size: contain;
+  animation: backgroundScroll 10s ease infinite;
+
+  color: #a1cfff;
+  animation: textGlow 2s ease-in-out infinite;
+  padding: 10px;
+}
+@keyframes backgroundScroll {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    color: #a1cfff;
+    text-shadow: 0 0 5px #00f, 0 0 10px #00f, 0 0 20px #0ff;
+  }
+  50% {
+    color: #e0f7ff;
+    text-shadow: 0 0 10px #66f, 0 0 20px #66f, 0 0 30px #0ff;
+  }
+}
+
+
+ .question-containar {
+  font-size: 20px;
+  background-color: #214471;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-image: url("/assets/shitsumonhaikei.png");
+  background-size: cover;
+  background-position: center;
+  padding: 40px 20px;
+  margin: 15px;
+  border-radius: 12px;
+}
+
+.question {
+  margin: 0 auto 30px;
+  width: 80%;
+  max-width: 600px;
+  height: auto;
+  background-color: aliceblue;
+  color: #214471;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.question p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.answer-containar {
+  width: 100%;
+  margin: 0 auto 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.answer {
+  width: 30%;
+  min-width: 150px;
+  height: 200px;
+  background-color: aliceblue;
+  color: #214471;
+  border-radius: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.answer label {
+  margin: 0;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10%;
+}
+
+.answer input[type='radio'] {
+  display: none;
+}
+
+.answer input[type='radio']:checked + label {
+  background-color: #000814;
+  color: #00ccff;
+  border: 2px solid #00ccff;
+  border-radius: 16px;
+  box-shadow:
+    0 0 10px #00ccff,
+    0 0 20px #00ccff,
+    0 0 40px #00ccff,
+    inset 0 0 10px #00ccff;
+  transform: scale(1.05);
+  text-shadow:
+    0 0 5px #00ccff,
+    0 0 10px #00ccff,
+    0 0 20px #00ccff;
+  font-weight: bold;
+  font-family: 'Press Start 2P', monospace;
+  transition: all 0.3s ease;
+  animation: neonPulse 1.2s infinite alternate;
+}
+
+/* アニメーション定義 */
+@keyframes neonPulse {
+  0% {
+    box-shadow: 
+      0 0 5px #00ccff,
+      0 0 10px #00ccff,
+      0 0 20px #00ccff,
+      inset 0 0 5px #00ccff;
+  }
+  100% {
+    box-shadow: 
+      0 0 15px #00ccff,
+      0 0 30px #00ccff,
+      0 0 60px #00ccff,
+      inset 0 0 15px #00ccff;
+  }
+}
+
+
+/* 診断するボタン */
+.submit-containar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; /* 背景を透明に */
+  padding: 40px 0;
+}
+
+.submit-button {
+  background-color: #000c2b;
+  color: #00bfff;
+  width: 200px;
+  height: 80px;
+  padding: 20px;
+  border-radius: 16px;
+  font-weight: bold;
+  font-size: 18px;
+  border: 2px solid #00bfff;
+  cursor: pointer;
+  text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff;
+  box-shadow: 0 0 5px #00bfff, 0 0 15px #00bfff inset;
+  transition: all 0.3s ease;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.submit-button:hover {
+  background-color: #000;
+  color: #fff;
+  border-color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+  box-shadow: 
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 40px #00ffff,
+    inset 0 0 10px #00ffff;
+  transform: scale(1.05);
+}
+

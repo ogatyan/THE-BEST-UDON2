@@ -1,0 +1,32 @@
+<div class ="toukoucontainar">
+  <%= form_for @tweet do |f| %>
+    <div class ="shopname">
+        <%= f.label :shop_name, "店舗名" %>
+        <%= f.text_field :shop_name %>
+      </div>
+
+      <div class ="foods">
+        <%= f.label :foods, "メニュー" %>
+        <%= f.text_field :foods %>
+      </div>
+      <div class ="price">
+        <%= f.label :price, "価格" %>
+        <%= f.number_field :price %>
+      </div>
+      <div class ="parking">
+        <%= f.label :parking, "駐車場" %>
+        <%= f.text_field :parking %>
+      </div>
+      <div class ="openclose">
+        <%= f.label :open_close, "営業時間" %>
+        <%= f.text_field :open_close %>
+      </div>
+      <div class ="shopplace">
+        <%= f.label :shop_place, "店舗の場所" %>
+        <%= f.text_field :shop_place %>
+      </div>
+      <div class ="hensyuu">
+        <%= f.submit "編集する" %>
+      </div>
+  <% end %>
+</div>

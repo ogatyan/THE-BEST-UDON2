@@ -1,0 +1,395 @@
+.udonguzaibox {
+  min-height: 100vh; /* 必要に応じて full height に */
+  width: 100%;
+  background-image: url("/assets/topping.png");
+  background-size: contain; /* cover → contain に変更 */
+  background-repeat: no-repeat; /* 繰り返しを防止 */
+  background-position: top center; /* 必要なら top に変更 */
+  background-color: #1A0E09; /* 背景色で余白を整える */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* 中央 → 上寄せに変更 */
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+  color: white;
+}
+.guzai-title-box {
+  background: linear-gradient(135deg, #8C52FF, #5CE1E6);
+  padding: 2rem 3rem;
+  border: 5px solid #8C52FF;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #8C52FF, 0 0 30px #5CE1E6;
+  max-width: 90%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin: 2rem auto;
+}
+.guzai-type-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
+  padding: 1.5rem 3rem;
+  background: linear-gradient(135deg, #8C52FF, #5CE1E6);
+  border: 5px solid #8C52FF;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #8C52FF, 0 0 25px #5CE1E6;
+  overflow: hidden;
+}
+.guzai-type-title span {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation:
+    typing 3.5s steps(30, end) forwards,
+    glow-color 2s ease-in-out infinite;
+  border-right: 3px solid #8C52FF;
+}
+/* タイピングアニメーション */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+/*  紫青のグローアニメーション */
+@keyframes glow-color {
+  0%, 100% {
+    text-shadow: 0 0 5px #8C52FF, 0 0 10px #5CE1E6;
+  }
+  50% {
+    text-shadow: 0 0 20px #8C52FF, 0 0 40px #5CE1E6, 0 0 60px #3A1F70;
+  }
+}.guzai-content {
+  background: linear-gradient(145deg, #1F0C3A, #0A2B33); /* 深い紫と青の混合 */
+  border: 3px solid rgba(140, 82, 255, 0.7);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 85%;
+  margin: 2rem auto;
+  box-shadow:
+    0 0 8px rgba(140, 82, 255, 0.5),
+    0 0 16px rgba(92, 225, 230, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  animation: contentGlow 4s ease-in-out infinite;
+  text-align: center;
+}
+.guzai-content p {
+  font-family: 'Orbitron', 'Yu Gothic', sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  color: #E0FAFF;
+  text-shadow: 0 0 4px #8C52FF, 0 0 6px #5CE1E6;
+  margin: 0;
+  animation: textFadeIn 2s ease-out;
+}
+/* アニメーション */
+@keyframes contentGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(140, 82, 255, 0.5),
+      0 0 16px rgba(92, 225, 230, 0.4),
+      inset 0 0 10px rgba(255, 255, 255, 0.05);
+  }
+  50% {
+    box-shadow:
+      0 0 12px rgba(140, 82, 255, 0.6),
+      0 0 20px rgba(92, 225, 230, 0.5),
+      inset 0 0 12px rgba(255, 255, 255, 0.08);
+  }
+}
+/* 残りの診断結果項目*/
+.udondashibox,
+.udonkoshibox,
+.udonspeedbox,
+.udonneutralbox {
+  min-height: 100vh;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-color: #1A0E09;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+  color: white;
+}
+/* ダシの項目*/
+.udondashibox {
+  background-image: url("/assets/dashi.png");
+}
+.dashi-type-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
+  padding: 1.5rem 3rem;
+  background: linear-gradient(135deg, #3C8DBC, #00C0EF);
+  border: 5px solid #3C8DBC;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #3C8DBC, 0 0 25px #00C0EF;
+  overflow: hidden;
+}
+.dashi-type-title span {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation:
+    typing 3.5s steps(30, end) forwards,
+    glow-color-dashi 2s ease-in-out infinite;
+  border-right: 3px solid #3C8DBC;
+}
+@keyframes glow-color-dashi {
+  0%, 100% {
+    text-shadow: 0 0 5px #3C8DBC, 0 0 10px #00C0EF;
+  }
+  50% {
+    text-shadow: 0 0 20px #3C8DBC, 0 0 40px #00C0EF, 0 0 60px #1C3A50;
+  }
+}
+.dashi-content {
+  background: linear-gradient(145deg, #1F0C3A, #0A2B33); /* 深い紫と青の混合 */
+  border: 3px solid rgba(140, 82, 255, 0.7);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 85%;
+  margin: 2rem auto;
+  box-shadow:
+    0 0 8px rgba(140, 82, 255, 0.5),
+    0 0 16px rgba(92, 225, 230, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  animation: contentGlow 4s ease-in-out infinite;
+  text-align: center;
+}
+.dashi-content p {
+  font-family: 'Orbitron', 'Yu Gothic', sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  color: #E0FAFF;
+  text-shadow: 0 0 4px #8C52FF, 0 0 6px #5CE1E6;
+  margin: 0;
+  animation: textFadeIn 2s ease-out;
+}
+/* コシの項目*/
+.udonkoshibox {
+  background-image: url("/assets/koshi.png");
+}
+.koshi-type-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
+  padding: 1.5rem 3rem;
+  background: linear-gradient(135deg, #FF5E62, #FF9966);
+  border: 5px solid #FF5E62;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #FF5E62, 0 0 25px #FF9966;
+  overflow: hidden;
+}
+.koshi-type-title span {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation:
+    typing 3.5s steps(30, end) forwards,
+    glow-color-koshi 2s ease-in-out infinite;
+  border-right: 3px solid #FF5E62;
+}
+@keyframes glow-color-koshi {
+  0%, 100% {
+    text-shadow: 0 0 5px #FF5E62, 0 0 10px #FF9966;
+  }
+  50% {
+    text-shadow: 0 0 20px #FF5E62, 0 0 40px #FF9966, 0 0 60px #5A1F1F;
+  }
+}
+.koshi-content {
+  background: linear-gradient(145deg, #1F0C3A, #0A2B33); /* 深い紫と青の混合 */
+  border: 3px solid rgba(140, 82, 255, 0.7);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 85%;
+  margin: 2rem auto;
+  box-shadow:
+    0 0 8px rgba(140, 82, 255, 0.5),
+    0 0 16px rgba(92, 225, 230, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  animation: contentGlow 4s ease-in-out infinite;
+  text-align: center;
+}
+.koshi-content p {
+  font-family: 'Orbitron', 'Yu Gothic', sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  color: #E0FAFF;
+  text-shadow: 0 0 4px #8C52FF, 0 0 6px #5CE1E6;
+  margin: 0;
+  animation: textFadeIn 2s ease-out;
+}
+/* スピードの項目*/
+.udonspeedbox {
+  background-image: url("/assets/speed.png");
+}
+.speed-type-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
+  padding: 1.5rem 3rem;
+  background: linear-gradient(135deg, #00FF87, #60EFFF);
+  border: 5px solid #00FF87;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #00FF87, 0 0 25px #60EFFF;
+  overflow: hidden;
+}
+.speed-type-title span {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation:
+    typing 3.5s steps(30, end) forwards,
+    glow-color-speed 2s ease-in-out infinite;
+  border-right: 3px solid #00FF87;
+}
+@keyframes glow-color-speed {
+  0%, 100% {
+    text-shadow: 0 0 5px #00FF87, 0 0 10px #60EFFF;
+  }
+  50% {
+    text-shadow: 0 0 20px #00FF87, 0 0 40px #60EFFF, 0 0 60px #003F3F;
+  }
+}
+.speed-content {
+  background: linear-gradient(145deg, #1F0C3A, #0A2B33); /* 深い紫と青の混合 */
+  border: 3px solid rgba(140, 82, 255, 0.7);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 85%;
+  margin: 2rem auto;
+  box-shadow:
+    0 0 8px rgba(140, 82, 255, 0.5),
+    0 0 16px rgba(92, 225, 230, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  animation: contentGlow 4s ease-in-out infinite;
+  text-align: center;
+}
+.speed-content p {
+  font-family: 'Orbitron', 'Yu Gothic', sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  color: #E0FAFF;
+  text-shadow: 0 0 4px #8C52FF, 0 0 6px #5CE1E6;
+  margin: 0;
+  animation: textFadeIn 2s ease-out;
+}
+/* 謎の項目*/
+.udonneutralbox {
+  background-image: url("/assets/chaos.png");
+}
+.neutral-type-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
+  padding: 1.5rem 3rem;
+  background: linear-gradient(135deg, #FF00CC, #3333FF);
+  border: 5px solid #FF00CC;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #FF00CC, 0 0 25px #3333FF;
+  overflow: hidden;
+}
+.neutral-type-title span {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation:
+    typing 3.5s steps(30, end) forwards,
+    glow-color-neutral 2s ease-in-out infinite;
+  border-right: 3px solid #FF00CC;
+}
+.neutral-content {
+  background: linear-gradient(145deg, #1F0C3A, #0A2B33); /* 深い紫と青の混合 */
+  border: 3px solid rgba(140, 82, 255, 0.7);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 85%;
+  margin: 2rem auto;
+  box-shadow:
+    0 0 8px rgba(140, 82, 255, 0.5),
+    0 0 16px rgba(92, 225, 230, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  animation: contentGlow 4s ease-in-out infinite;
+  text-align: center;
+}
+.neutral-content p {
+  font-family: 'Orbitron', 'Yu Gothic', sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  color: #E0FAFF;
+  text-shadow: 0 0 4px #8C52FF, 0 0 6px #5CE1E6;
+  margin: 0;
+  animation: textFadeIn 2s ease-out;
+}
+/* 共通アニメーション*/
+@keyframes glow-color-neutral {
+  0%, 100% {
+    text-shadow: 0 0 5px #FF00CC, 0 0 10px #3333FF;
+  }
+  50% {
+    text-shadow: 0 0 20px #FF00CC, 0 0 40px #3333FF, 0 0 60px #1A0033;
+  }
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes contentGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(140, 82, 255, 0.5),
+      0 0 16px rgba(92, 225, 230, 0.4),
+      inset 0 0 10px rgba(255, 255, 255, 0.05);
+  }
+  50% {
+    box-shadow:
+      0 0 12px rgba(140, 82, 255, 0.6),
+      0 0 20px rgba(92, 225, 230, 0.5),
+      inset 0 0 12px rgba(255, 255, 255, 0.08);
+  }
+}
+@keyframes textFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

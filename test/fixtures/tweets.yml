@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shop_name: MyString
+  foods: MyString
+  price: 1
+  parking: MyString
+  open/close: MyString
+
+two:
+  shop_name: MyString
+  foods: MyString
+  price: 1
+  parking: MyString
+  open/close: MyString

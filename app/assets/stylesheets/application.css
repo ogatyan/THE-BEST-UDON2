@@ -1,0 +1,504 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ * {
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
+      Meiryo, "ＭＳＰゴシック", sans-serif;
+  }
+  .header-list i{
+    font-size: 50px;
+    color: #4f5ca5; 
+    margin: 50px;
+  }
+  header {
+    background-color: #42d8d8;
+    height: 80px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url("/assets/header.png");
+    background-size:cover;
+    display: flex;
+    align-items: center;
+    font-family: 'Kiwi Maru', serif;
+  }
+  .headlist a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #111272; 
+    border: 2px solid #000000; 
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: 'Kiwi Maru', 'Noto Serif JP', serif;
+  }
+  
+  header h1 {
+    color: rgb(0, 0, 0);
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  .header-list {
+    display: flex;
+    align-items: center;
+  }
+  header ul {
+    display: flex;
+  }
+  header li {
+    list-style: none;
+    height: 80px;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .logbox{/* ログアウトのボタン */
+    margin: -25px;
+    cursor: pointer;
+  }
+  .hitogatabox{
+    
+  }
+  .btn-btn-link{/* マイページのボタン */
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-right: 50px;
+  }
+  .headlist{
+  display: flex;
+  margin-right: 80px;
+  }
+  .reo{
+    display: flex;
+    align-items: center;
+  }
+  
+  @keyframes bugfix {
+    from {
+      padding: 0;
+    }
+    to {
+      padding: 0;
+    }
+  }
+  @-webkit-keyframes bugfix {
+    from {
+      padding: 0;
+    }
+    to {
+      padding: 0;
+    }
+  }
+  #overlay-button {
+    position: fixed;
+    right: 2em;
+    top: 3em;
+    z-index: 5;
+    cursor: pointer;
+    user-select: none;
+  }
+  #overlay-button span {
+    height: 4px;
+    width: 35px;
+    border-radius: 2px;
+    background-color: white;
+    position: relative;
+    display: block;
+    transition: all .2s ease-in-out;
+  }
+  #overlay-button span:before {
+    top: -10px;
+    visibility: visible;
+  }
+  #overlay-button span:after {
+    top: 10px;
+  }
+  #overlay-button span:before, #overlay-button span:after {
+    height: 4px;
+    width: 35px;
+    border-radius: 2px;
+    background-color: white;
+    position: absolute;
+    content: "";
+    transition: all .2s ease-in-out;
+  }
+  #overlay-button:hover span, #overlay-button:hover span:before, #overlay-button:hover span:after {
+    background: #fff;
+  }
+  
+  input[type=checkbox] {
+    display: none; 
+    
+  }
+  
+  input[type=checkbox]:checked ~ #overlay {
+    visibility: visible; 
+  }
+  
+  input[type=checkbox]:checked ~ #overlay-button:hover span, input[type=checkbox]:checked ~ #overlay-button span {
+    background: transparent;
+    
+    
+  }
+  input[type=checkbox]:checked ~ #overlay-button span:before {
+    transform: rotate(45deg) translate(7px, 7px);
+  
+  }
+  input[type=checkbox]:checked ~ #overlay-button span:after {
+    transform: rotate(-45deg) translate(7px, -7px);
+  
+  
+  }
+ 
+  /* トップメニュー */
+  #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 100vh; /* 最低でも画面いっぱい */
+      background: #E0E0E0;
+      visibility: hidden;
+      overflow-y: auto; /* 中身が多いときだけスクロールする */
+      display: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      z-index: 3;
+  }
+
+  #overlay.active {
+    display: block;
+    z-index: 3;
+  }
+  #overlay ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100vh;
+    padding-left: 0;
+    list-style-type: none;
+  }
+  #overlay ul li {
+    padding: 1em;
+  }
+  #overlay ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+  }
+  #overlay ul li a:hover {
+    color: #000!important;
+  }
+  .menucontainar{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;/* ← これで縦並び！ */
+    align-items: center;/* ← これで中央寄せ！ */
+        background-image: url('/assets/topmenu.png');
+    background-size: cover;
+    }
+    .shindanbox{
+        height: 200px;
+        width: 700px;
+        margin-top: 30px;
+        padding-bottom: 10px;
+        background-image: url('/assets/haikei.png');
+        background-size: cover;
+        border: 4px solid #000000;
+        border-radius:100px;
+        display: flex;
+        flex-direction: column;/* ← これで縦並び！ */
+        align-items: center;/* ← これで中央寄せ！ */
+        justify-content: center; /* ← 縦中央寄せ！ */
+        }
+        .shindanswitch {
+          position: relative;
+          height: 150px;
+          width: 500px;
+          background: linear-gradient(to right, #4fc3f7, #1976d2); /* 元の水色 */
+          border-radius: 100px;
+          font-size: 50px;
+          margin: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: 'Kiwi Maru', serif;
+          overflow: hidden;
+          transition: background 0.5s ease;
+      }
+      
+      .shindanswitch span1 {
+          background: linear-gradient(
+              to right,
+              #000814,
+              #001d3d,
+              #003566,
+              #005f73,
+              #0a9396,
+              #48cae4,
+              #90e0ef,
+              #caf0f8,
+              #90e0ef,
+              #48cae4,
+              #0a9396,
+              #005f73,
+              #003566,
+              #001d3d,
+              #000814
+          );
+          background-size: 200% auto;
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+          -webkit-text-fill-color: transparent;
+          animation: rainbowText 5s linear infinite;
+          z-index: 1;
+      }
+      
+      /* ホバーで黄金背景に */
+      .shindanswitch:hover {
+          background: linear-gradient(to right, #FFD700, #FFA500, #FFD700);
+      }
+      
+      /* 稲妻風ピカー演出（白っぽい斜線の光） */
+      .shindanswitch::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -75%;
+          width: 50%;
+          height: 200%;
+          background: rgba(255, 255, 255, 0.6); /* 白っぽい光 */
+          transform: rotate(25deg);
+          pointer-events: none;
+      }
+      
+      /* ホバー時にピカーアニメーション */
+      .shindanswitch:hover::before {
+          animation: lightningFlash 0.8s ease-in-out;
+      }
+      
+      /* 稲妻アニメーション：左→右に走る */
+      @keyframes lightningFlash {
+          0% {
+              left: -75%;
+              opacity: 0;
+          }
+          30% {
+              opacity: 1;
+          }
+          100% {
+              left: 150%;
+              opacity: 0;
+          }
+      }
+      
+      /* アニメーション */
+      @keyframes rainbowText {
+          0% {
+              background-position: 0% center;
+          }
+          100% {
+              background-position: -200% center;
+          }
+      }
+      
+    
+.rankingbox{
+    height: 280px;
+    width: 1500px;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    }
+    .kennairankingbox{
+        height: 200px;
+        width: 550px;
+        background-image: url('/assets/haikei.png');
+        background-size: cover;
+        border: 4px solid #000000;
+        border-radius:100px;
+        display: flex;           /* ← 追加 */
+        align-items: center;     /* ← 横中央 */
+        justify-content: center; /* ← 縦中央 */
+        }
+    .kennaiswitch{
+        height: 150px;
+        width: 350px;
+        background: linear-gradient(to right, #00ff00, #00e676);
+        border-radius:100px;
+         font-size: 25px;
+          margin: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: 'Kiwi Maru', serif;
+          overflow: hidden;
+        transition: background 0.5s ease;
+        }
+    .kennaiswitch span2 {
+    background: linear-gradient(
+        to right,
+        #A8E6CF,
+        #8EE4AF,
+        #66BB6A,
+        #4CAF50,
+        #388E3C,
+        #2E7D32,
+        #66BB6A,
+        #8EE4AF,
+        #A8E6CF
+        );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: rainbowText 5s linear infinite;
+    z-index: 1;
+    }
+/* ホバーで黄金背景に */
+.kennaiswitch:hover {
+    background: linear-gradient(to right, #FFD700, #FFA500, #FFD700);
+}
+
+
+.sougourankingbox {
+    height: 200px;
+    width: 550px;
+    background-image: url('/assets/haikei.png');
+    background-size: cover;
+    border: 4px solid #000000;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sougouswitch {
+    height: 150px;
+    width: 350px;
+    background: linear-gradient(to right, #a259ff, #ff6b6b); /* 紫から赤 */
+    border-radius: 100px;
+    font-size: 25px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Kiwi Maru', serif;
+    overflow: hidden;
+    transition: background 0.5s ease;
+}
+
+.sougouswitch span2 {
+    background: linear-gradient(
+        to right,
+              #000814,
+              #001d3d,
+              #003566,
+              #005f73,
+              #0a9396,
+              #48cae4,
+              #90e0ef,
+              #caf0f8,
+              #90e0ef,
+              #48cae4,
+              #0a9396,
+              #005f73,
+              #003566,
+              #001d3d,
+              #000814
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: rainbowText 5s linear infinite;
+    z-index: 1;
+}
+
+/* ホバーで黄金背景に */
+.sougouswitch:hover {
+    background: linear-gradient(to right, #FFD700, #FFA500, #FFD700);
+}
+
+    .kengairankingbox{
+        height: 200px;
+        width: 550px;
+        background-image: url('/assets/haikei.png');
+        background-size: cover;
+        border: 4px solid #000000;
+        border-radius:100px;
+        display: flex;           /* ← 追加 */
+        align-items: center;     /* ← 横中央 */
+        justify-content: center; /* ← 縦中央 */    
+        }
+    .kengaiswitch{
+        height: 150px;
+        width: 350px;
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        border-radius:100px;
+            }
+
+.postbox{
+    height: 320px;
+    width: 1500px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    }
+        .mypost{
+            height: 300px;
+            width: 550px;
+            background-image: url('/assets/watashi.png');
+            background-size: cover;
+            border: 4px solid #000000;
+            display: flex;
+            align-items: center;     /* ← 縦は中央のまま */
+            justify-content: flex-end; /* ← 横を右寄せに！ */
+            }
+        .spotshindan{
+                height: 300px;
+                width: 550px;
+                background-image: url('/assets/udonshindan.png');
+                background-size: cover;
+                border: 4px solid #000000;                
+              }
+        .anotherpost{
+                height: 300px;
+                width: 550px;
+                background-image: url('/assets/minna.png');
+                background-size: cover;
+                border: 4px solid #000000;                display: flex;
+                align-items: center;     /* ← 縦は中央のまま */
+                justify-content: flex-end; /* ← 横を右寄せに！ */
+                }

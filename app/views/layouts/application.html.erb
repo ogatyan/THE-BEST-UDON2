@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Bestudon</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <script src="https://kit.fontawesome.com/1870a44133.js" crossorigin="anonymous"></script>
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+      <%= javascript_importmap_tags %>
+    </head>
+    <body>
+      <header>
+      <h1></h1>
+        <input type="checkbox" id="overlay-input" />
+        <label for="overlay-input" id="overlay-button"><span></span></label>
+        <div id="overlay">
+          <div class="menucontainar">
+            <div class ="tojirubox">
+            </div>
+            <div class ="shindanbox">
+                <%= link_to tests_path do %>
+                  <div class ="shindanswitch">
+                    <span1>最高の一杯診断</span1>
+                  </div>
+                <% end %>
+            </div>
+            <div class ="rankingbox">
+              <div class ="kennairankingbox">
+                  <%= link_to tweets_naibu_path do %>
+                    <div class ="kennaiswitch">
+                      <span2>県内ランキング</span2>
+                    </div>
+                  <% end %>
+              </div>
+              <div class ="sougourankingbox">
+                  <%= link_to tweets_sougou_path do %>
+                    <div class ="sougouswitch">
+                      <span2>総合ランキング</span2>
+                    </div>
+                  <% end %>
+              </div>
+              <div class ="kengairankingbox">
+                  <%= link_to tweets_gaibu_path do %>
+                    <div class ="kengaiswitch">
+                      <span2>県外ランキング</span2>
+                    </div>
+                  <% end %>
+              </div>
+          </div>
+          <div class ="postbox">
+              <div class ="mypost">
+              </div>
+              <div class ="spotshindan">
+              </div>
+              <div class ="anotherpost">
+              </div>
+          </div>
+      </div>
+        </div>
+          <ul class="headlist">
+            <% if user_signed_in? %>
+              <div class="hitogatabox">
+                <li class="reo">
+                  <%= link_to user_path(current_user.id), class: "btn-btn-link" do %>
+                    <i class="fas fa-user" style="color: #007bff; font-size: 50px;"></i> 
+                  <% end %>
+                </li>
+              </div>
+                <li class="reo"><%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logbox' %></li>
+            <% else %>
+              <li><%= link_to "新規登録", new_user_registration_path %></li>
+              
+              <li><%= link_to "ログイン", new_user_session_path %></li>
+            <% end %>
+          </ul>
+      </header>
+
+      <main>
+       <%= yield %>
+      </main>
+    </body> 
+</html>
