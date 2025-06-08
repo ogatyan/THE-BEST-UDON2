@@ -13,7 +13,7 @@ ENV RAILS_ENV="production" \
 FROM base as build
 # Install packages needed to build gems (libpq-devを追加)
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libvips pkg-config libpq-dev
+    apt-get install --no-install-recommends -y build-essential git libvips pkg-config libpq-dev libyaml-dev
 # Install application gems
 COPY Gemfile Gemfile.lock ./
 RUN bundle install && \
