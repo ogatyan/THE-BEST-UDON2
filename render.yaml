@@ -6,7 +6,7 @@ databases:
 
 services:
   - type: web
-    name: THE BEST UDON
+    name: THE BEST UDON2
     env: ruby
     region: singapore
     plan: free
