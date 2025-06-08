@@ -16,7 +16,11 @@ class TestsController < ApplicationController
     
     def show
         @test = Test.find(params[:id])
-        @dashi = Tweet.where(genre: "dashi").order("RANDOM()").limit(3)
+        @dashi = Tweet.where(genre: "ダシタイプ").order("RANDOM()").limit(3)
+        @koshi= Tweet.where(genre: "コシタイプ").order("RANDOM()").limit(3)
+        @guzai= Tweet.where(genre: "具材タイプ").order("RANDOM()").limit(3)
+        @speed= Tweet.where(genre: "スピードタイプ").order("RANDOM()").limit(3)
+        @neutral= Tweet.order("RANDOM()").limit(3)
     end
     
     
@@ -40,7 +44,14 @@ private
         }
         #コシとダシと具材と早さで最もスコアが高いものを文字列として取得
         #9行目につながる(result_type)に格納する
-        group_scores.max_by { |_, v| v }[0].to_s
+      max_score = group_scores.values.max
+        # 最大スコアが複数ある（同点）場合
+        if group_scores.values.count(max_score) > 1
+          "該当なし"
+        else
+          # 最大のスコアのカテゴリを返す
+          group_scores.max_by { |_, v| v }[0].to_s
+        end
     end
 
 end

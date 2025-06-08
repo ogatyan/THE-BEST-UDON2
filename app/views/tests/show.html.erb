@@ -12,11 +12,93 @@
       店を選ぶ基準は出汁。朝うどんで出汁チャージする人も多い…かも。
     </p>
   </div>
+  <div class="shindandashicontainer"> 
+  <% if user_signed_in? %>
+    <% @dashi.each do |t| %>
+      <div class="postblock">
+        <!-- ユーザー情報 -->
+        <div class="user-info">
+          <div class="posticon">
+            <% if t.user.image.attached? %>
+              <%= image_tag t.user.image, class: 'posticon-image' %>
+            <% end %>
+          </div>
+          <div class="username">
+            <%= link_to t.user.name, user_path(t.user.id) %>
+          </div>
+        </div>
+
+        <!-- 投稿画像 -->
+        <div class="postpicture">
+          <% if t.image.attached? %>
+            <%= image_tag t.image, class: 'postimage' %>            
+          <% end %>
+        </div>
+
+        <!-- いいねボタン -->
+        <div class="goodbox">
+          <div class="like-button">
+            <i class="fa-solid fa-heart" style="color: violet;"></i>
+            <span><%= t.total_likes %></span>
+          </div>
+          <% if user_signed_in? %>
+            <% if current_user.prefecture == "香川県民" %>
+              <%= link_to (current_user.already_liked?(t) ? tweet_kennai_path(id: t.id, tweet_id: t.id) : tweet_kennais_path(id: t.id, tweet_id: t.id)),
+              method: (current_user.already_liked?(t) ? :delete : :post), class: "like-button" do %>
+                <i class="fa-solid fa-heart" style="color:green;"></i>
+                <span><%= t.kennais.count %></span>
+              <% end %>
+            <% else %>
+              <div class="like-button disabled">
+                <i class="fa-solid fa-heart" style="color:gray;"></i>
+                <span><%= t.kennais.count %></span>
+              </div>
+            <% end %>
+
+            <% if current_user.prefecture == "県外" %>
+              <%= link_to (current_user.already_kengaied?(t) ? tweet_kengai_path(id: t.id, tweet_id: t.id) : tweet_kengais_path(id: t.id, tweet_id: t.id)),
+              method: (current_user.already_kengaied?(t) ? :delete : :post), class: "like-button" do %>
+                <i class="fa-solid fa-heart" style="color:orange;"></i>
+                <span><%= t.kengais.count %></span>
+              <% end %>
+            <% else %>
+              <div class="like-button disabled">
+                <i class="fa-solid fa-heart" style="color:gray;"></i>
+                <span><%= t.kengais.count %></span>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+
+        <!-- 詳細情報 -->
+        <div class="postdetails">
+          <p><strong>ジャンル:</strong> <%= blank_or_dash(t.genre) %></p>
+          <p><strong>店名:</strong> <%= blank_or_dash(t.shop_name) %></p>
+          <p><strong>場所:</strong> <%= t.shop_place %></p>
+          <p><strong>商品:</strong> <%= t.foods %></p>
+          <p><strong>価格:</strong> <%= t.price %></p>
+          <p><strong>駐車場:</strong> <%= t.parking %></p>
+          <p><strong>営業時間:</strong> <%= t.open_close %></p>
+        </div>
+
+        <!-- CRUD操作 -->
+        <div class="crud-buttons">
+          <%= link_to "詳細", tweet_path(t.id), class: "crud-link" %>
+          <% if user_signed_in? && current_user.id == t.user_id %>
+            <%= link_to "編集", edit_tweet_path(t.id), class: "crud-link" %>
+            <%= button_to "削除", tweet_path(t.id), method: :delete, class: "crud-button" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
 </div>
 <% when "kosi" %>
 <div class="udonkoshibox">
   <h2>あなたのタイプは</h2>
-  <div class="dashi-type-title">
+  <div class="koshi-type-title">
     <span>コシ命タイプ｜「歯ごたえがすべて！」</span>
   </div>
   <div class="koshi-content">
@@ -26,7 +108,90 @@
       トッピングより麺そのものに全力。
     </p>
   </div>
+  <div class="shindankoshicontainer"> 
+    <% if user_signed_in? %>
+      <% @koshi.each do |t| %>
+        <div class="postblock">
+          <!-- ユーザー情報 -->
+          <div class="user-info">
+            <div class="posticon">
+              <% if t.user.image.attached? %>
+                <%= image_tag t.user.image, class: 'posticon-image' %>
+              <% end %>
+            </div>
+            <div class="username">
+              <%= link_to t.user.name, user_path(t.user.id) %>
+            </div>
+          </div>
+
+          <!-- 投稿画像 -->
+          <div class="postpicture">
+            <% if t.image.attached? %>
+              <%= image_tag t.image, class: 'postimage' %>            
+            <% end %>
+          </div>
+
+          <!-- いいねボタン -->
+          <div class="goodbox">
+            <div class="like-button">
+              <i class="fa-solid fa-heart" style="color: violet;"></i>
+              <span><%= t.total_likes %></span>
+            </div>
+            <% if user_signed_in? %>
+              <% if current_user.prefecture == "香川県民" %>
+                <%= link_to (current_user.already_liked?(t) ? tweet_kennai_path(id: t.id, tweet_id: t.id) : tweet_kennais_path(id: t.id, tweet_id: t.id)),
+                method: (current_user.already_liked?(t) ? :delete : :post), class: "like-button" do %>
+                  <i class="fa-solid fa-heart" style="color:green;"></i>
+                  <span><%= t.kennais.count %></span>
+                <% end %>
+              <% else %>
+                <div class="like-button disabled">
+                  <i class="fa-solid fa-heart" style="color:gray;"></i>
+                  <span><%= t.kennais.count %></span>
+                </div>
+              <% end %>
+
+              <% if current_user.prefecture == "県外" %>
+                <%= link_to (current_user.already_kengaied?(t) ? tweet_kengai_path(id: t.id, tweet_id: t.id) : tweet_kengais_path(id: t.id, tweet_id: t.id)),
+                method: (current_user.already_kengaied?(t) ? :delete : :post), class: "like-button" do %>
+                  <i class="fa-solid fa-heart" style="color:orange;"></i>
+                  <span><%= t.kengais.count %></span>
+                <% end %>
+              <% else %>
+                <div class="like-button disabled">
+                  <i class="fa-solid fa-heart" style="color:gray;"></i>
+                  <span><%= t.kengais.count %></span>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+
+          <!-- 詳細情報 -->
+          <div class="postdetails">
+            <p><strong>ジャンル:</strong> <%= blank_or_dash(t.genre) %></p>
+            <p><strong>店名:</strong> <%= blank_or_dash(t.shop_name) %></p>
+            <p><strong>場所:</strong> <%= t.shop_place %></p>
+            <p><strong>商品:</strong> <%= t.foods %></p>
+            <p><strong>価格:</strong> <%= t.price %></p>
+            <p><strong>駐車場:</strong> <%= t.parking %></p>
+            <p><strong>営業時間:</strong> <%= t.open_close %></p>
+          </div>
+
+          <!-- CRUD操作 -->
+          <div class="crud-buttons">
+            <%= link_to "詳細", tweet_path(t.id), class: "crud-link" %>
+            <% if user_signed_in? && current_user.id == t.user_id %>
+              <%= link_to "編集", edit_tweet_path(t.id), class: "crud-link" %>
+              <%= button_to "削除", tweet_path(t.id), method: :delete, class: "crud-button" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
+
+
 <% when "guzai" %> 
 <div class="udonguzaibox">
   <h2>あなたのタイプは、、、</h2>
@@ -41,6 +206,87 @@
       気分と季節で色を変える、あなただけの“うどんギャラリー”。
     </p>
   </div>
+  <div class="shindanguzaicontainer"> 
+    <% if user_signed_in? %>
+      <% @guzai.each do |t| %>
+        <div class="postblock">
+          <!-- ユーザー情報 -->
+          <div class="user-info">
+            <div class="posticon">
+              <% if t.user.image.attached? %>
+                <%= image_tag t.user.image, class: 'posticon-image' %>
+              <% end %>
+            </div>
+            <div class="username">
+              <%= link_to t.user.name, user_path(t.user.id) %>
+            </div>
+          </div>
+
+          <!-- 投稿画像 -->
+          <div class="postpicture">
+            <% if t.image.attached? %>
+              <%= image_tag t.image, class: 'postimage' %>            
+            <% end %>
+          </div>
+
+          <!-- いいねボタン -->
+          <div class="goodbox">
+            <div class="like-button">
+              <i class="fa-solid fa-heart" style="color: violet;"></i>
+              <span><%= t.total_likes %></span>
+            </div>
+            <% if user_signed_in? %>
+              <% if current_user.prefecture == "香川県民" %>
+                <%= link_to (current_user.already_liked?(t) ? tweet_kennai_path(id: t.id, tweet_id: t.id) : tweet_kennais_path(id: t.id, tweet_id: t.id)),
+                method: (current_user.already_liked?(t) ? :delete : :post), class: "like-button" do %>
+                  <i class="fa-solid fa-heart" style="color:green;"></i>
+                  <span><%= t.kennais.count %></span>
+                <% end %>
+              <% else %>
+                <div class="like-button disabled">
+                  <i class="fa-solid fa-heart" style="color:gray;"></i>
+                  <span><%= t.kennais.count %></span>
+                </div>
+              <% end %>
+
+              <% if current_user.prefecture == "県外" %>
+                <%= link_to (current_user.already_kengaied?(t) ? tweet_kengai_path(id: t.id, tweet_id: t.id) : tweet_kengais_path(id: t.id, tweet_id: t.id)),
+                method: (current_user.already_kengaied?(t) ? :delete : :post), class: "like-button" do %>
+                  <i class="fa-solid fa-heart" style="color:orange;"></i>
+                  <span><%= t.kengais.count %></span>
+                <% end %>
+              <% else %>
+                <div class="like-button disabled">
+                  <i class="fa-solid fa-heart" style="color:gray;"></i>
+                  <span><%= t.kengais.count %></span>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+
+          <!-- 詳細情報 -->
+          <div class="postdetails">
+            <p><strong>ジャンル:</strong> <%= blank_or_dash(t.genre) %></p>
+            <p><strong>店名:</strong> <%= blank_or_dash(t.shop_name) %></p>
+            <p><strong>場所:</strong> <%= t.shop_place %></p>
+            <p><strong>商品:</strong> <%= t.foods %></p>
+            <p><strong>価格:</strong> <%= t.price %></p>
+            <p><strong>駐車場:</strong> <%= t.parking %></p>
+            <p><strong>営業時間:</strong> <%= t.open_close %></p>
+          </div>
+
+          <!-- CRUD操作 -->
+          <div class="crud-buttons">
+            <%= link_to "詳細", tweet_path(t.id), class: "crud-link" %>
+            <% if user_signed_in? && current_user.id == t.user_id %>
+              <%= link_to "編集", edit_tweet_path(t.id), class: "crud-link" %>
+              <%= button_to "削除", tweet_path(t.id), method: :delete, class: "crud-button" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 <% when "speed" %>
@@ -49,13 +295,94 @@
   <div class="speed-type-title">
     <span>スピード派タイプ｜「5分で旨い！それが正義」</span>
   </div>
-  <div class="guzai-content">
+  <div class="speed-content">
     <p>
     「5分で入店、5分で満足。」<br>
       求めるのは贅沢じゃない、うまさの即効性。<br>
       “さっと食べて、しゃっと出る”が美学なあなたは、<br>
       回転率こそ正義の、うどんスプリンター！
     </p>
+  </div>
+  <div class="shindanspeedcontainer"> 
+    <% if user_signed_in? %>
+      <% @speed.each do |t| %>
+        <div class="postblock">
+          <!-- ユーザー情報 -->
+          <div class="user-info">
+            <div class="posticon">
+              <% if t.user.image.attached? %>
+                <%= image_tag t.user.image, class: 'posticon-image' %>
+              <% end %>
+            </div>
+            <div class="username">
+              <%= link_to t.user.name, user_path(t.user.id) %>
+            </div>
+          </div>
+
+          <!-- 投稿画像 -->
+          <div class="postpicture">
+            <% if t.image.attached? %>
+              <%= image_tag t.image, class: 'postimage' %>            
+            <% end %>
+          </div>
+
+          <!-- いいねボタン -->
+          <div class="goodbox">
+            <div class="like-button">
+              <i class="fa-solid fa-heart" style="color: violet;"></i>
+              <span><%= t.total_likes %></span>
+            </div>
+            <% if user_signed_in? %>
+              <% if current_user.prefecture == "香川県民" %>
+                <%= link_to (current_user.already_liked?(t) ? tweet_kennai_path(id: t.id, tweet_id: t.id) : tweet_kennais_path(id: t.id, tweet_id: t.id)),
+                method: (current_user.already_liked?(t) ? :delete : :post), class: "like-button" do %>
+                  <i class="fa-solid fa-heart" style="color:green;"></i>
+                  <span><%= t.kennais.count %></span>
+                <% end %>
+              <% else %>
+                <div class="like-button disabled">
+                  <i class="fa-solid fa-heart" style="color:gray;"></i>
+                  <span><%= t.kennais.count %></span>
+                </div>
+              <% end %>
+
+              <% if current_user.prefecture == "県外" %>
+                <%= link_to (current_user.already_kengaied?(t) ? tweet_kengai_path(id: t.id, tweet_id: t.id) : tweet_kengais_path(id: t.id, tweet_id: t.id)),
+                method: (current_user.already_kengaied?(t) ? :delete : :post), class: "like-button" do %>
+                  <i class="fa-solid fa-heart" style="color:orange;"></i>
+                  <span><%= t.kengais.count %></span>
+                <% end %>
+              <% else %>
+                <div class="like-button disabled">
+                  <i class="fa-solid fa-heart" style="color:gray;"></i>
+                  <span><%= t.kengais.count %></span>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+
+          <!-- 詳細情報 -->
+          <div class="postdetails">
+            <p><strong>ジャンル:</strong> <%= blank_or_dash(t.genre) %></p>
+            <p><strong>店名:</strong> <%= blank_or_dash(t.shop_name) %></p>
+            <p><strong>場所:</strong> <%= t.shop_place %></p>
+            <p><strong>商品:</strong> <%= t.foods %></p>
+            <p><strong>価格:</strong> <%= t.price %></p>
+            <p><strong>駐車場:</strong> <%= t.parking %></p>
+            <p><strong>営業時間:</strong> <%= t.open_close %></p>
+          </div>
+
+          <!-- CRUD操作 -->
+          <div class="crud-buttons">
+            <%= link_to "詳細", tweet_path(t.id), class: "crud-link" %>
+            <% if user_signed_in? && current_user.id == t.user_id %>
+              <%= link_to "編集", edit_tweet_path(t.id), class: "crud-link" %>
+              <%= button_to "削除", tweet_path(t.id), method: :delete, class: "crud-button" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
 
@@ -71,5 +398,86 @@
         新しいタイプかも。
       </p>
     </div>
+    <div class="shindanneutralcontainer"> 
+    <% if user_signed_in? %>
+      <% @neutral.each do |t| %>
+        <div class="postblock">
+          <!-- ユーザー情報 -->
+          <div class="user-info">
+            <div class="posticon">
+              <% if t.user.image.attached? %>
+                <%= image_tag t.user.image, class: 'posticon-image' %>
+              <% end %>
+            </div>
+            <div class="username">
+              <%= link_to t.user.name, user_path(t.user.id) %>
+            </div>
+          </div>
+
+          <!-- 投稿画像 -->
+          <div class="postpicture">
+            <% if t.image.attached? %>
+              <%= image_tag t.image, class: 'postimage' %>            
+            <% end %>
+          </div>
+
+          <!-- いいねボタン -->
+          <div class="goodbox">
+            <div class="like-button">
+              <i class="fa-solid fa-heart" style="color: violet;"></i>
+              <span><%= t.total_likes %></span>
+            </div>
+            <% if user_signed_in? %>
+              <% if current_user.prefecture == "香川県民" %>
+                <%= link_to (current_user.already_liked?(t) ? tweet_kennai_path(id: t.id, tweet_id: t.id) : tweet_kennais_path(id: t.id, tweet_id: t.id)),
+                method: (current_user.already_liked?(t) ? :delete : :post), class: "like-button" do %>
+                  <i class="fa-solid fa-heart" style="color:green;"></i>
+                  <span><%= t.kennais.count %></span>
+                <% end %>
+              <% else %>
+                <div class="like-button disabled">
+                  <i class="fa-solid fa-heart" style="color:gray;"></i>
+                  <span><%= t.kennais.count %></span>
+                </div>
+              <% end %>
+
+              <% if current_user.prefecture == "県外" %>
+                <%= link_to (current_user.already_kengaied?(t) ? tweet_kengai_path(id: t.id, tweet_id: t.id) : tweet_kengais_path(id: t.id, tweet_id: t.id)),
+                method: (current_user.already_kengaied?(t) ? :delete : :post), class: "like-button" do %>
+                  <i class="fa-solid fa-heart" style="color:orange;"></i>
+                  <span><%= t.kengais.count %></span>
+                <% end %>
+              <% else %>
+                <div class="like-button disabled">
+                  <i class="fa-solid fa-heart" style="color:gray;"></i>
+                  <span><%= t.kengais.count %></span>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+
+          <!-- 詳細情報 -->
+          <div class="postdetails">
+            <p><strong>ジャンル:</strong> <%= blank_or_dash(t.genre) %></p>
+            <p><strong>店名:</strong> <%= blank_or_dash(t.shop_name) %></p>
+            <p><strong>場所:</strong> <%= t.shop_place %></p>
+            <p><strong>商品:</strong> <%= t.foods %></p>
+            <p><strong>価格:</strong> <%= t.price %></p>
+            <p><strong>駐車場:</strong> <%= t.parking %></p>
+            <p><strong>営業時間:</strong> <%= t.open_close %></p>
+          </div>
+
+          <!-- CRUD操作 -->
+          <div class="crud-buttons">
+            <%= link_to "詳細", tweet_path(t.id), class: "crud-link" %>
+            <% if user_signed_in? && current_user.id == t.user_id %>
+              <%= link_to "編集", edit_tweet_path(t.id), class: "crud-link" %>
+              <%= button_to "削除", tweet_path(t.id), method: :delete, class: "crud-button" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
   </div>
 <% end %>

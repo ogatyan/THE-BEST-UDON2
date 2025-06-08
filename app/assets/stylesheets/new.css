@@ -12,11 +12,10 @@
     font-family: 'Kiwi Maru', serif;
     color: #fff; /* テキストカラー */
 }
-
 /* 登録セクション */
 .registerblock {
     position: relative;
-    padding: 50px;
+    padding: 70px;
     border-radius: 10px;
     font-size: 36px;
     color: rgb(212, 225, 238);
@@ -129,12 +128,14 @@
 }
 .link-button {
     display: inline-block;
+    width: 78%;
     padding: 15px 40px;
     background-color: #00ccff;
     color: white;
     text-decoration: none;
     border-radius: 50px;
     font-size: 20px;
+    font-weight: bold;
     font-family: 'Kiwi Maru', serif;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -151,7 +152,6 @@
 .logincontainar {
     width: 100%;
     height: 100vh;
-    padding-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -250,22 +250,37 @@
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.actions input
-
+.backforget a:hover {
+  color: #ebeb63;
+  text-decoration:none;  
+}
+header a:hover{
+  color: #6d706c;
+  text-decoration-line: none;
+}
+.backforget{
+  background-image: url('/assets/backforget.png');
+  background-size: cover;
+  border-radius: 8px;
+  padding: 10px;
+  width: 20%;
+  background-color: #85898a;
+  border: 2px solid #2c363d;
+}
 
   
 
- /* 新規うどん投稿*/ 
-  .newpagetitle {
-    font-size: 3em;
-    text-align: center;
-    color: #ffffff;
-    margin-bottom: 10px;
-    font-weight: bold;
-    border-bottom: 3px double #ffffff;
-    padding-bottom: 10px;
-    font-family: 'Kiwi Maru', serif;
-  }
+/* 新規うどん投稿*/ 
+.newpagetitle {
+  font-size: 3em;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-weight: bold;
+  border-bottom: 3px double #ffffff;
+  padding-bottom: 10px;
+  font-family: 'Kiwi Maru', serif;
+}
   
   h3 {
     font-size: 1.5em;
@@ -341,46 +356,40 @@
     transform: scale(1.05);
   }
 
-  a {
+   /* a {
     display: block;
     text-align: center;
     margin-top: 10px;
     color: #000000;
     text-decoration: none;
     font-weight: bold;
-  }
+  }*/
   
-  a:hover {
-    text-decoration: underline;
-    color: #b6b602;
-  }
-  header a:hover{
-    color: #6d706c;
-    text-decoration-line: none;
-  }
-.backforget{
-    background-image: url('/assets/backforget.png');
-    background-size: cover;
-    border-radius: 8px;
-    padding: 10px;
-    width: 20%;
-    height: 100pxx;
-    background-color: #85898a;
-    border: 2px solid #2c363d;
-}
 
 
 
   /* 診断機能 */
 .test-form {
-  background: linear-gradient(-45deg, #003366, #004080, #0059b3, #0073e6);
-  background-size: 400% 400%;
-  animation: gradientShift 12s ease infinite;
+  background: repeating-linear-gradient(
+    135deg,
+    #0d0d0d,
+    #0d0d0d 20px,
+    #1a1a2e 20px,
+    #1a1a2e 40px,
+    #001f3f 40px,
+    #001f3f 60px,
+    #0d0d0d 60px,
+    #0d0d0d 80px
+  );
+  background-size: 200% 200%;
+  animation: stripeShift 20s linear infinite;
   padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-  color: white;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+  color: #f0f0f0;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.1em;
 }
+
 
 /* 背景グラデーションを滑らかに動かすアニメーション */
 @keyframes gradientShift {
@@ -588,4 +597,69 @@
     inset 0 0 10px #00ffff;
   transform: scale(1.05);
 }
+/* =============================================== */
+/* レスポンシブ対応 (画面幅が768px以下の場合に適用) */
+/* =============================================== */
+@media screen and (max-width: 768px) {
 
+  /* --- フォーム全体の調整 --- */
+  .test-form {
+    padding: 20px; /* 全体の余白を少し狭くする */
+    font-size: 1em;  /* 基準フォントサイズを調整 */
+  }
+  
+  /* --- タイトルの調整 --- */
+  .udontoukouform {
+    font-size: 24px; /* スマホ用にタイトルを少し小さくする */
+    padding: 15px;
+  }
+
+  /* --- 各質問コンテナの調整 --- */
+  .question-containar {
+    padding: 20px 10px; /* 余白を調整 */
+    margin: 10px;
+  }
+  
+  .question {
+    padding: 15px;
+  }
+
+  .question p {
+    font-size: 16px; /* 質問文のフォントサイズを調整 */
+  }
+
+  /* --- 回答コンテナの調整 --- */
+  .answer-containar {
+    /* PCでは横並びだったものを、スマホでは縦に並べる */
+    flex-direction: column; 
+    align-items: center; /* 中央に寄せる */
+    gap: 15px; /* 選択肢の間の余白 */
+    margin-bottom: 20px;
+  }
+
+  /* --- 回答の選択肢を調整（最重要） --- */
+  .answer {
+    width: 90%;       /* 横幅を画面に合わせて広げる */
+    height: auto;     /* 高さを自動調整に変更 */
+    min-height: 80px; /* 最低限の高さを確保 */
+    border-radius: 16px; /* 固定値の方が形の崩れが少ない */
+  }
+
+  .answer label {
+    border-radius: 16px; /* こちらも合わせて固定値に */
+    padding: 10px;
+  }
+
+  .answer input[type='radio']:checked + label {
+    border-radius: 16px;
+  }
+
+  /* --- 診断するボタンの調整 --- */
+  .submit-button {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    padding: 15px;
+    font-size: 16px;
+  }
+}

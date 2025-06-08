@@ -1,41 +1,41 @@
-<h1>マイページ</h1>
-<p>名前 : <%= @user.name %></p>
-<p>メールアドレス : <%= @user.email %></p>
-<p>プロフィール : <%= @user.profile %></p>
+<div class="mypage-container">
+  <h1 class="page-title">マイページ</h1>
 
-<% if current_user.id == @user.id %>
-  <%= link_to "編集する", edit_user_registration_path %>
-<% end %>
-
-<h2>あなたの投稿一覧</h2>
-<% @user.tweets.each do |t| %>
-  <div class="tweet-box">
-    <p><strong>名前:</strong> <%= t.user.name %></p>
-    <p><strong>店名:</strong> <%= t.shop_name %></p>
-    <p><strong>場所:</strong> <%= t.shop_place %></p>
-    <p><strong>料理:</strong> <%= t.foods %></p>
-    <p><strong>価格:</strong> <%= t.price %>円</p>
-    <p><strong>駐車場:</strong> <%= t.parking %></p>
-    <p><strong>営業時間:</strong> <%= t.open_close %></p>
-    <p><strong>投稿者ページ:</strong> <%= link_to t.user.name, user_path(t.user.id) %></p>
-    <p><strong>メール:</strong> <%= t.user.email %></p>
+  <div class="profile-box">
+    <p><strong>名前：</strong><%= @user.name %></p>
+    <p><strong>プロフィール：</strong><%= @user.profile %></p>
+    <% if current_user.id == @user.id %>
+      <%= link_to "編集する", edit_user_registration_path, class: "edit-link" %>
+    <% end %>
   </div>
-<% end %>
 
-<!-- 以下はいいね機能を実装している場合-->
-<h2>ユーザーがいいねした投稿一覧</h2>
-<% @user.liked_tweets.each do |t| %>
-  <%= t.user.name %>
-  <%= t.shop_name %>
-  <%= t.shop_place %>
-  <%= t.foods %>
-  <%= t.price %>
-  <%= t.parking %>
-   <%= t.open_close %>
-     <%= link_to t.user.name, user_path(t.user.id) %>
-   <%= t.user.email %>
-<% end %>
-<!-- ここまで-->
+  <h2 class="section-title">あなたの投稿一覧</h2>
+  <% @user.tweets.each do |t| %>
+    <div class="tweet-box">
+      <p><strong>投稿者:</strong> <%= t.user.name %></p>
+      <p><strong>店名:</strong> <%= t.shop_name %></p>
+      <p><strong>場所:</strong> <%= t.shop_place %></p>
+      <p><strong>料理:</strong> <%= t.foods %></p>
+      <p><strong>価格:</strong> <%= t.price %>円</p>
+      <p><strong>駐車場:</strong> <%= t.parking %></p>
+      <p><strong>来店時間:</strong> <%= t.open_close %></p>
+      <p><strong>投稿者ページ:</strong> <%= link_to t.user.name, user_path(t.user.id) %></p>
+    </div>
+  <% end %>
 
+  <h2 class="section-title">あなたがいいねした投稿一覧</h2>
+  <% @user.liked_tweets.each do |t| %>
+    <div class="tweet-box">
+      <p><strong>投稿者:</strong> <%= t.user.name %></p>
+      <p><strong>店名:</strong> <%= t.shop_name %></p>
+      <p><strong>場所:</strong> <%= t.shop_place %></p>
+      <p><strong>料理:</strong> <%= t.foods %></p>
+      <p><strong>価格:</strong> <%= t.price %>円</p>
+      <p><strong>駐車場:</strong> <%= t.parking %></p>
+      <p><strong>来店時間:</strong> <%= t.open_close %></p>
+      <p><strong>投稿者ページ:</strong> <%= link_to t.user.name, user_path(t.user.id) %></p>
+    </div>
+  <% end %>
 
-<%= link_to "Tweet一覧に戻る", tweets_path %>
+  <%= link_to "Tweet一覧に戻る", tweets_path, class: "back-link" %>
+</div>

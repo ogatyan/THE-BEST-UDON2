@@ -1,0 +1,144 @@
+/* 全体背景 */
+body {
+  background-color: #0e1111; /* 黒に近い濃紺 */
+  font-family: 'Kiwi Maru', serif;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+}
+
+/* 見出しタイトル */
+.newpagetitleSSS {
+  font-size: 2.8em;
+  text-align: center;
+  color: #e0e0e0;
+  margin-bottom: 20px;
+  font-weight: bold;
+  border-bottom: 2px solid #44536a;
+  padding-bottom: 12px;
+  font-family: 'Kiwi Maru', serif;
+  letter-spacing: 2px;
+}
+
+/* 投稿フォーム全体 */
+form.SSS {
+  max-width: 700px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, #1b2735, #111820);
+  border: 1px solid #44536a;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ラベルと入力欄のブロック */
+.fieldSSS {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ラベル */
+.fieldSSS label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1em;
+  color: #c8d3dc;
+  letter-spacing: 1px;
+}
+
+/* 入力欄（共通） */
+.fieldSSS input[type="text"],
+.fieldSSS input[type="number"],
+.fieldSSS input[type="file"],
+.fieldSSS input[type="email"],
+.fieldSSS input[type="password"],
+.fieldSSS select {
+  width: 100%;
+  max-width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #5a6b7f;
+  background-color: #0e1a25;
+  color: #ffffff;
+  font-size: 1em;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+/* フォーカス時の強調 */
+.fieldSSS input:focus,
+.fieldSSS select:focus {
+  border-color: #6ea1f1;
+  outline: none;
+}
+
+/* セレクトボックス装飾 */
+.fieldSSS select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+/* placeholder */
+.fieldSSS input::placeholder {
+  color: #888;
+}
+
+/* 「価格」欄の inline 表示の調整 */
+.fieldSSS .inline-flex {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 数値入力 + 単位（円） */
+.fieldSSS .inline-flex input[type="number"] {
+  flex: 1;
+}
+
+/* 送信ボタン */
+input[type="submit"].SSS {
+  background: linear-gradient(135deg, #4f5d75, #2c3e50);
+  color: #ffffff;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1em;
+  display: block;
+  margin: 40px auto 10px auto;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"].SSS:hover {
+  background: #5af28b;
+  color: #0e1111;
+  transform: scale(1.05);
+}
+
+/* 戻るリンク */
+.modoruboxSSS {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.modoruboxSSS a.SSS {
+  color: #c0c8d0;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+  padding: 10px 16px;
+  border-radius: 6px;
+  background-color: #1b2735;
+  border: 1px solid #44536a;
+  transition: background-color 0.3s ease;
+}
+
+.modoruboxSSS a.SSS:hover {
+  background-color: #5af28b;
+  color: #0e1111;
+}

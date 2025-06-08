@@ -1,0 +1,90 @@
+.mypageeditcontainer{
+    margin-top: 30px;
+}
+
+
+.edit-form-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #1b2a49; /* 和風紺 */
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  border: 2px solid #c8b560; /* 金色の縁 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.edit-form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  border-bottom: 2px solid #c8b560;
+  padding-bottom: 10px;
+}
+
+.edit-form-container .field {
+  margin-bottom: 20px;
+}
+
+.edit-form-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #ffebc5; /* 明るめの金系文字 */
+}
+
+.edit-form-container input[type="text"],
+.edit-form-container input[type="email"],
+.edit-form-container input[type="password"],
+.edit-form-container input[type="file"],
+.edit-form-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c8b560;
+  border-radius: 8px;
+  background-color: #fefefe;
+  color: #1b2a49;
+  font-size: 1em;
+}
+
+.edit-form-container textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.edit-form-container .actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.edit-form-container input[type="submit"] {
+  background-color: #c8b560;
+  color: #1b2a49;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.edit-form-container input[type="submit"]:hover {
+  background-color: #e0c66c;
+}
+
+.edit-form-container .cancel-button,
+.edit-form-container a {
+  display: inline-block;
+  margin-top: 15px;
+  text-align: center;
+  color: #c8b560;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.edit-form-container .cancel-button:hover,
+.edit-form-container a:hover {
+    text-decoration:none;  
+    color: #ffea7f;
+}

@@ -42,11 +42,11 @@ class TweetsController < ApplicationController
         redirect_to action: :index
       end
       def ranking
-        @rank_kennais = Tweet.all.sort_by { |t| -t.kennais.count }.take(5)
-        @rank_kengais = Tweet.all.sort_by { |t| -t.kengais.count }.take(5)
-        @rank_sougou  = Tweet.all.sort_by { |t| -t.total_likes }.take(5)
+        @rank_kennais = Tweet.all.sort_by { |t| -t.kennais.count }.take(3)
+        @rank_kengais = Tweet.all.sort_by { |t| -t.kengais.count }.take(3)
+        @rank_sougou  = Tweet.all.sort_by { |t| -t.total_likes }.take(3)
       end
-      def neibu
+      def naibu
         @rank_kennais = Tweet.all.sort_by { |t| -t.kennais.count }.take(5)
       end
       def gaibu

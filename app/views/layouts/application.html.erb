@@ -29,7 +29,7 @@
               <div class ="kennairankingbox">
                   <%= link_to tweets_naibu_path do %>
                     <div class ="kennaiswitch">
-                      <span2>県内ランキング</span2>
+                      <span2>地元民ランキング</span2>
                     </div>
                   <% end %>
               </div>
@@ -43,18 +43,29 @@
               <div class ="kengairankingbox">
                   <%= link_to tweets_gaibu_path do %>
                     <div class ="kengaiswitch">
-                      <span2>県外ランキング</span2>
+                      <span2>他県民ランキング</span2>
                     </div>
                   <% end %>
               </div>
           </div>
           <div class ="postbox">
-              <div class ="mypost">
-              </div>
-              <div class ="spotshindan">
-              </div>
-              <div class ="anotherpost">
-              </div>
+              <% if user_signed_in? %>
+                <%= link_to user_path(current_user.id) do %>
+                  <div class ="mypost">
+                  </div>
+                <% end %>
+              <% else %>
+                <%= link_to  new_user_session_path do %>
+                  <div class ="mypost">
+                  </div>
+                <% end %> 
+              <% end %> 
+                <div class ="spotshindan">
+                </div>
+                <%= link_to  tweets_path do %>
+                  <div class ="anotherpost">
+                  </div>
+                <% end %> 
           </div>
       </div>
         </div>
@@ -69,9 +80,12 @@
               </div>
                 <li class="reo"><%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logbox' %></li>
             <% else %>
-              <li><%= link_to "新規登録", new_user_registration_path %></li>
-              
-              <li><%= link_to "ログイン", new_user_session_path %></li>
+              <div class="toubox">
+                <%= link_to "新規登録", new_user_registration_path %>
+              </div> 
+              <div class="toubox">
+                <%= link_to "ログイン", new_user_session_path %>
+              </div> 
             <% end %>
           </ul>
       </header>

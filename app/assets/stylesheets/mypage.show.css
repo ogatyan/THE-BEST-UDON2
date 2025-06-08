@@ -1,0 +1,65 @@
+body {
+  background-color: #545974;
+  font-family: 'Kiwi Maru', serif;
+}
+
+.mypage-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.page-title {
+  text-align: center;
+  color: #ffffff; /* 和風紺 */
+  font-size: 2em;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #c8b560; /* 金系ライン */
+  padding-bottom: 10px;
+}
+
+.profile-box,
+.tweet-box {
+  background-color: #1b2a49; /* 和風紺 */
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border: 2px solid #c8b560; /* 金系縁取り */
+}
+
+.tweet-box p,
+.profile-box p {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+.tweet-box a{
+  color: #ffffff;
+  text-decoration: none;
+}
+.section-title {
+  font-size: 1.5em;
+  color: #ffffff;
+  margin-top: 40px;
+  border-left: 6px solid #c8b560;
+  padding-left: 10px;
+}
+
+.edit-link,
+.back-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #c8b560; /* 和風金色 */
+  color: #1b2a49;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.edit-link:hover,
+.back-link:hover {
+  background-color: #e0c66c;
+}

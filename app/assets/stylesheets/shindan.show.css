@@ -1,30 +1,232 @@
-.udonguzaibox {
-  min-height: 100vh; /* 必要に応じて full height に */
-  width: 100%;
-  background-image: url("/assets/topping.png");
-  background-size: contain; /* cover → contain に変更 */
-  background-repeat: no-repeat; /* 繰り返しを防止 */
-  background-position: top center; /* 必要なら top に変更 */
-  background-color: #1A0E09; /* 背景色で余白を整える */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* 中央 → 上寄せに変更 */
-  padding: 4rem 2rem;
-  box-sizing: border-box;
-  color: white;
+/* ダシの項目 */
+.udondashibox {
+  background-image: url("/assets/dashi.png");
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
 }
-.guzai-title-box {
-  background: linear-gradient(135deg, #8C52FF, #5CE1E6);
-  padding: 2rem 3rem;
-  border: 5px solid #8C52FF;
-  border-radius: 20px;
-  box-shadow: 0 0 15px #8C52FF, 0 0 30px #5CE1E6;
-  max-width: 90%;
+.udondashibox h2{
+  color: #ffffff;
+}
+.dashi-type-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #fff;
   text-align: center;
-  position: relative;
+  margin: 0 auto 2rem;
+  width: fit-content;
+  padding: 1.2rem 2.5rem;
+  background: linear-gradient(135deg, #3C8DBC, #00C0EF);
+  border: 4px solid #3C8DBC;
+  border-radius: 16px;
+  box-shadow: 0 0 10px #3C8DBC, 0 0 20px #00C0EF;
+}
+.dashi-type-title span {
+  display: inline-block;
+  white-space: nowrap;
   overflow: hidden;
+  animation:
+    typing 3.5s steps(30, end) forwards,
+    glow-color-dashi 2s ease-in-out infinite;
+  border-right: 3px solid #3C8DBC;
+}
+/* タイピング＆光アニメ */
+@keyframes glow-color-dashi {
+  0%, 100% {
+    text-shadow: 0 0 5px #3C8DBC, 0 0 10px #00C0EF;
+  }
+  50% {
+    text-shadow: 0 0 15px #3C8DBC, 0 0 30px #00C0EF, 0 0 45px #1C3A50;
+  }
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+/* コンテンツ */
+.dashi-content {
+  background: linear-gradient(145deg, #1F0C3A, #0A2B33);
+  border: 2px solid rgba(140, 82, 255, 0.6);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 90%;
   margin: 2rem auto;
+  box-shadow:
+    0 0 8px rgba(140, 82, 255, 0.4),
+    0 0 12px rgba(92, 225, 230, 0.3),
+    inset 0 0 5px rgba(255, 255, 255, 0.03);
+  animation: contentGlow 4s ease-in-out infinite;
+  text-align: center;
+}
+@keyframes contentGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(140, 82, 255, 0.4),
+      0 0 12px rgba(92, 225, 230, 0.3),
+      inset 0 0 5px rgba(255, 255, 255, 0.03);
+  }
+  50% {
+    box-shadow:
+      0 0 12px rgba(140, 82, 255, 0.6),
+      0 0 18px rgba(92, 225, 230, 0.5),
+      inset 0 0 10px rgba(255, 255, 255, 0.05);
+  }
+}
+.dashi-content p {
+  font-family: 'Orbitron', 'Yu Gothic', sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  color: #E0FAFF;
+  text-shadow: 0 0 4px #8C52FF, 0 0 6px #5CE1E6;
+  margin: 0;
+  animation: textFadeIn 1.5s ease-out;
+}
+@keyframes textFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* 投稿一覧グリッド */
+.shindandashicontainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* ← 3列固定に */
+  gap: 30px;
+  padding: 40px;
+  background-color: #35475898; /* 深紺色 */
+  justify-items: center;
+  font-family: 'Noto Serif JP', serif;
+}
+/* レスポンシブ対応 */
+@media screen and (max-width: 1024px) {
+  .shindandashicontainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 600px) {
+  .shindandashicontainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* コシの項目*/
+.udonkoshibox {
+  background-image: url("/assets/koshi.png");
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+}
+.udonkoshibox h2{
+  color: #ffffff;
+}
+.koshi-type-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
+  padding: 1.5rem 3rem;
+  background: linear-gradient(135deg, #FF5E62, #FF9966);
+  border: 5px solid #FF5E62;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #FF5E62, 0 0 25px #FF9966;
+  overflow: hidden;
+}
+.koshi-type-title span {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation:
+    typing 3.5s steps(30, end) forwards,
+    glow-color-koshi 2s ease-in-out infinite;
+  border-right: 3px solid #FF5E62;
+}
+@keyframes glow-color-koshi {
+  0%, 100% {
+    text-shadow: 0 0 5px #FF5E62, 0 0 10px #FF9966;
+  }
+  50% {
+    text-shadow: 0 0 20px #FF5E62, 0 0 40px #FF9966, 0 0 60px #5A1F1F;
+  }
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.koshi-content {
+  background: linear-gradient(145deg, #1F0C3A, #0A2B33); /* 深い紫と青の混合 */
+  border: 3px solid rgba(140, 82, 255, 0.7);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 85%;
+  margin: 2rem auto;
+  box-shadow:
+    0 0 8px rgba(140, 82, 255, 0.5),
+    0 0 16px rgba(92, 225, 230, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  animation: contentGlow 4s ease-in-out infinite;
+  text-align: center;
+}
+@keyframes contentGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(140, 82, 255, 0.4),
+      0 0 12px rgba(92, 225, 230, 0.3),
+      inset 0 0 5px rgba(255, 255, 255, 0.03);
+  }
+  50% {
+    box-shadow:
+      0 0 12px rgba(140, 82, 255, 0.6),
+      0 0 18px rgba(92, 225, 230, 0.5),
+      inset 0 0 10px rgba(255, 255, 255, 0.05);
+  }
+}
+.koshi-content p {
+  font-family: 'Orbitron', 'Yu Gothic', sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  color: #E0FAFF;
+  text-shadow: 0 0 4px #8C52FF, 0 0 6px #5CE1E6;
+  margin: 0;
+  animation: textFadeIn 2s ease-out;
+}
+@keyframes textFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.shindankoshicontainer {
+display: grid;
+grid-template-columns: repeat(3, 1fr); /* ← 3列固定に */
+gap: 40px;
+padding: 50px;
+background-color: #35475898; /* 深紺色 */
+justify-items: center;
+font-family: 'Noto Serif JP', serif;
+}
+/* レスポンシブ対応 */
+@media screen and (max-width: 1024px) {
+  .shindankoshicontainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .shindankoshicontainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 具材の項目 */
+.udonguzaibox {
+  background-image: url("/assets/topping.png");
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+}
+.udonguzaibox h2{
+  color: #ffffff;
 }
 .guzai-type-title {
   font-family: 'Orbitron', sans-serif;
@@ -67,7 +269,8 @@
   50% {
     text-shadow: 0 0 20px #8C52FF, 0 0 40px #5CE1E6, 0 0 60px #3A1F70;
   }
-}.guzai-content {
+}
+.guzai-content {
   background: linear-gradient(145deg, #1F0C3A, #0A2B33); /* 深い紫と青の混合 */
   border: 3px solid rgba(140, 82, 255, 0.7);
   border-radius: 16px;
@@ -80,6 +283,20 @@
     inset 0 0 10px rgba(255, 255, 255, 0.05);
   animation: contentGlow 4s ease-in-out infinite;
   text-align: center;
+}
+@keyframes contentGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(140, 82, 255, 0.4),
+      0 0 12px rgba(92, 225, 230, 0.3),
+      inset 0 0 5px rgba(255, 255, 255, 0.03);
+  }
+  50% {
+    box-shadow:
+      0 0 12px rgba(140, 82, 255, 0.6),
+      0 0 18px rgba(92, 225, 230, 0.5),
+      inset 0 0 10px rgba(255, 255, 255, 0.05);
+  }
 }
 .guzai-content p {
   font-family: 'Orbitron', 'Yu Gothic', sans-serif;
@@ -90,161 +307,42 @@
   margin: 0;
   animation: textFadeIn 2s ease-out;
 }
-/* アニメーション */
-@keyframes contentGlow {
-  0%, 100% {
-    box-shadow:
-      0 0 8px rgba(140, 82, 255, 0.5),
-      0 0 16px rgba(92, 225, 230, 0.4),
-      inset 0 0 10px rgba(255, 255, 255, 0.05);
-  }
-  50% {
-    box-shadow:
-      0 0 12px rgba(140, 82, 255, 0.6),
-      0 0 20px rgba(92, 225, 230, 0.5),
-      inset 0 0 12px rgba(255, 255, 255, 0.08);
-  }
+@keyframes textFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-/* 残りの診断結果項目*/
-.udondashibox,
-.udonkoshibox,
-.udonspeedbox,
-.udonneutralbox {
-  min-height: 100vh;
-  width: 100%;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-color: #1A0E09;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 4rem 2rem;
-  box-sizing: border-box;
-  color: white;
+.shindanguzaicontainer {
+display: grid;
+grid-template-columns: repeat(3, 1fr); /* ← 3列固定に */
+gap: 40px;
+padding: 50px;
+background-color: #35475898; /* 深紺色 */
+justify-items: center;
+font-family: 'Noto Serif JP', serif;
 }
-/* ダシの項目*/
-.udondashibox {
-  background-image: url("/assets/dashi.png");
-}
-.dashi-type-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 900;
-  color: #FFFFFF;
-  text-align: center;
-  margin: 0 auto;
-  width: fit-content;
-  padding: 1.5rem 3rem;
-  background: linear-gradient(135deg, #3C8DBC, #00C0EF);
-  border: 5px solid #3C8DBC;
-  border-radius: 20px;
-  box-shadow: 0 0 15px #3C8DBC, 0 0 25px #00C0EF;
-  overflow: hidden;
-}
-.dashi-type-title span {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  animation:
-    typing 3.5s steps(30, end) forwards,
-    glow-color-dashi 2s ease-in-out infinite;
-  border-right: 3px solid #3C8DBC;
-}
-@keyframes glow-color-dashi {
-  0%, 100% {
-    text-shadow: 0 0 5px #3C8DBC, 0 0 10px #00C0EF;
-  }
-  50% {
-    text-shadow: 0 0 20px #3C8DBC, 0 0 40px #00C0EF, 0 0 60px #1C3A50;
+/* レスポンシブ対応 */
+@media screen and (max-width: 1024px) {
+  .shindanguzaicontainer {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-.dashi-content {
-  background: linear-gradient(145deg, #1F0C3A, #0A2B33); /* 深い紫と青の混合 */
-  border: 3px solid rgba(140, 82, 255, 0.7);
-  border-radius: 16px;
-  padding: 2rem;
-  max-width: 85%;
-  margin: 2rem auto;
-  box-shadow:
-    0 0 8px rgba(140, 82, 255, 0.5),
-    0 0 16px rgba(92, 225, 230, 0.4),
-    inset 0 0 10px rgba(255, 255, 255, 0.05);
-  animation: contentGlow 4s ease-in-out infinite;
-  text-align: center;
-}
-.dashi-content p {
-  font-family: 'Orbitron', 'Yu Gothic', sans-serif;
-  font-size: 1.6rem;
-  line-height: 2.5rem;
-  color: #E0FAFF;
-  text-shadow: 0 0 4px #8C52FF, 0 0 6px #5CE1E6;
-  margin: 0;
-  animation: textFadeIn 2s ease-out;
-}
-/* コシの項目*/
-.udonkoshibox {
-  background-image: url("/assets/koshi.png");
-}
-.koshi-type-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 900;
-  color: #FFFFFF;
-  text-align: center;
-  margin: 0 auto;
-  width: fit-content;
-  padding: 1.5rem 3rem;
-  background: linear-gradient(135deg, #FF5E62, #FF9966);
-  border: 5px solid #FF5E62;
-  border-radius: 20px;
-  box-shadow: 0 0 15px #FF5E62, 0 0 25px #FF9966;
-  overflow: hidden;
-}
-.koshi-type-title span {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  animation:
-    typing 3.5s steps(30, end) forwards,
-    glow-color-koshi 2s ease-in-out infinite;
-  border-right: 3px solid #FF5E62;
-}
-@keyframes glow-color-koshi {
-  0%, 100% {
-    text-shadow: 0 0 5px #FF5E62, 0 0 10px #FF9966;
-  }
-  50% {
-    text-shadow: 0 0 20px #FF5E62, 0 0 40px #FF9966, 0 0 60px #5A1F1F;
+
+@media screen and (max-width: 600px) {
+  .shindanguzaicontainer {
+    grid-template-columns: 1fr;
   }
 }
-.koshi-content {
-  background: linear-gradient(145deg, #1F0C3A, #0A2B33); /* 深い紫と青の混合 */
-  border: 3px solid rgba(140, 82, 255, 0.7);
-  border-radius: 16px;
-  padding: 2rem;
-  max-width: 85%;
-  margin: 2rem auto;
-  box-shadow:
-    0 0 8px rgba(140, 82, 255, 0.5),
-    0 0 16px rgba(92, 225, 230, 0.4),
-    inset 0 0 10px rgba(255, 255, 255, 0.05);
-  animation: contentGlow 4s ease-in-out infinite;
-  text-align: center;
-}
-.koshi-content p {
-  font-family: 'Orbitron', 'Yu Gothic', sans-serif;
-  font-size: 1.6rem;
-  line-height: 2.5rem;
-  color: #E0FAFF;
-  text-shadow: 0 0 4px #8C52FF, 0 0 6px #5CE1E6;
-  margin: 0;
-  animation: textFadeIn 2s ease-out;
-}
+
+
 /* スピードの項目*/
 .udonspeedbox {
   background-image: url("/assets/speed.png");
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+}
+.udonspeedbox h2{
+  color: #ffffff;
 }
 .speed-type-title {
   font-family: 'Orbitron', sans-serif;
@@ -270,7 +368,15 @@
     glow-color-speed 2s ease-in-out infinite;
   border-right: 3px solid #00FF87;
 }
-@keyframes glow-color-speed {
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes glow-color{
   0%, 100% {
     text-shadow: 0 0 5px #00FF87, 0 0 10px #60EFFF;
   }
@@ -292,6 +398,20 @@
   animation: contentGlow 4s ease-in-out infinite;
   text-align: center;
 }
+@keyframes contentGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(140, 82, 255, 0.4),
+      0 0 12px rgba(92, 225, 230, 0.3),
+      inset 0 0 5px rgba(255, 255, 255, 0.03);
+  }
+  50% {
+    box-shadow:
+      0 0 12px rgba(140, 82, 255, 0.6),
+      0 0 18px rgba(92, 225, 230, 0.5),
+      inset 0 0 10px rgba(255, 255, 255, 0.05);
+  }
+}
 .speed-content p {
   font-family: 'Orbitron', 'Yu Gothic', sans-serif;
   font-size: 1.6rem;
@@ -301,9 +421,41 @@
   margin: 0;
   animation: textFadeIn 2s ease-out;
 }
+@keyframes textFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.shindanspeedcontainer {
+display: grid;
+grid-template-columns: repeat(3, 1fr); /* ← 3列固定に */
+gap: 40px;
+padding: 50px;
+background-color: #35475898; /* 深紺色 */
+justify-items: center;
+font-family: 'Noto Serif JP', serif;
+}
+/* レスポンシブ対応 */
+@media screen and (max-width: 1024px) {
+  .shindanspeedcontainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .shindanspeedcontainer {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* 謎の項目*/
 .udonneutralbox {
   background-image: url("/assets/chaos.png");
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+}
+.udonneutralbox h2{
+  color: #ffffff;
 }
 .neutral-type-title {
   font-family: 'Orbitron', sans-serif;
@@ -329,29 +481,6 @@
     glow-color-neutral 2s ease-in-out infinite;
   border-right: 3px solid #FF00CC;
 }
-.neutral-content {
-  background: linear-gradient(145deg, #1F0C3A, #0A2B33); /* 深い紫と青の混合 */
-  border: 3px solid rgba(140, 82, 255, 0.7);
-  border-radius: 16px;
-  padding: 2rem;
-  max-width: 85%;
-  margin: 2rem auto;
-  box-shadow:
-    0 0 8px rgba(140, 82, 255, 0.5),
-    0 0 16px rgba(92, 225, 230, 0.4),
-    inset 0 0 10px rgba(255, 255, 255, 0.05);
-  animation: contentGlow 4s ease-in-out infinite;
-  text-align: center;
-}
-.neutral-content p {
-  font-family: 'Orbitron', 'Yu Gothic', sans-serif;
-  font-size: 1.6rem;
-  line-height: 2.5rem;
-  color: #E0FAFF;
-  text-shadow: 0 0 4px #8C52FF, 0 0 6px #5CE1E6;
-  margin: 0;
-  animation: textFadeIn 2s ease-out;
-}
 /* 共通アニメーション*/
 @keyframes glow-color-neutral {
   0%, 100% {
@@ -369,6 +498,20 @@
     width: 100%;
   }
 }
+.neutral-content {
+  background: linear-gradient(145deg, #1F0C3A, #0A2B33); /* 深い紫と青の混合 */
+  border: 3px solid rgba(140, 82, 255, 0.7);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 85%;
+  margin: 2rem auto;
+  box-shadow:
+    0 0 8px rgba(140, 82, 255, 0.5),
+    0 0 16px rgba(92, 225, 230, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  animation: contentGlow 4s ease-in-out infinite;
+  text-align: center;
+}
 @keyframes contentGlow {
   0%, 100% {
     box-shadow:
@@ -383,6 +526,15 @@
       inset 0 0 12px rgba(255, 255, 255, 0.08);
   }
 }
+.neutral-content p {
+  font-family: 'Orbitron', 'Yu Gothic', sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  color: #E0FAFF;
+  text-shadow: 0 0 4px #8C52FF, 0 0 6px #5CE1E6;
+  margin: 0;
+  animation: textFadeIn 2s ease-out;
+}
 @keyframes textFadeIn {
   from {
     opacity: 0;
@@ -391,5 +543,96 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+/* 投稿一覧グリッド */
+.shindanneutralcontainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* ← 3列固定に */
+  gap: 30px;
+  padding: 40px;
+  background-color: #35475898; /* 深紺色 */
+  justify-items: center;
+  font-family: 'Noto Serif JP', serif;
+}
+/* レスポンシブ対応 */
+@media screen and (max-width: 1024px) {
+  .shindanneutralcontainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 600px) {
+  .shindanneutralcontainer {
+    grid-template-columns: 1fr;
+  }
+}
+/* =============================================== */
+/* レスポンシブ対応 (画面幅が768px以下の場合に適用) */
+/* =============================================== */
+@media screen and (max-width: 768px) {
+
+  /* --- 各結果ページの共通コンテナ --- */
+  .udondashibox,
+  .udonkoshibox,
+  .udonguzaibox,
+  .udonspeedbox,
+  .udonneutralbox {
+    padding: 1rem; /* 全体の余白を調整 */
+  }
+
+  /* --- 各結果の「タイトル」部分を共通で調整 --- */
+  .dashi-type-title,
+  .koshi-type-title,
+  .guzai-type-title,
+  .speed-type-title,
+  .neutral-type-title {
+    font-size: 1.3rem;  /* スマホ用にフォントサイズを小さく */
+    padding: 1rem 1.5rem; /* 内側の余白を調整 */
+    /* タイピングアニメーションがはみ出さないように調整 */
+    white-space: normal;
+    border-right: none; /* カーソルを非表示に */
+    animation: none; /* スマホではアニメーションを一旦停止 */
+  }
+
+  .dashi-type-title span,
+  .koshi-type-title span,
+  .guzai-type-title span,
+  .speed-type-title span,
+  .neutral-type-title span {
+    white-space: normal; /* タイトルが長くなった場合に折り返すようにする */
+    border-right: none;
+    animation: none;
+    display: block; /* アニメーションなしでも表示されるように */
+    width: auto;
+  }
+  
+  /* --- 各結果の「説明文」部分を共通で調整 --- */
+  .dashi-content,
+  .koshi-content,
+  .guzai-content,
+  .speed-content,
+  .neutral-content {
+    max-width: 100%; /* 横幅を画面いっぱいに */
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+  }
+
+  .dashi-content p,
+  .koshi-content p,
+  .guzai-content p,
+  .speed-content p,
+  .neutral-content p {
+    font-size: 1.1rem;   /* 説明文のフォントサイズを調整 */
+    line-height: 1.8rem; /* 行間を調整 */
+  }
+
+  /* --- 各投稿一覧のグリッドコンテナ --- */
+  .shindandashicontainer,
+  .shindankoshicontainer,
+  .shindanguzaicontainer,
+  .shindanspeedcontainer,
+  .shindanneutralcontainer {
+    padding: 20px; /* グリッド全体の余白を調整 */
+    gap: 20px;     /* グリッド内のアイテム間の余白を調整 */
   }
 }

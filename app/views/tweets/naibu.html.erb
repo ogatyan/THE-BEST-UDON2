@@ -1,1 +1,103 @@
-県内ランキングページ
+<div class="firstblockSS">
+  <div class="left-containarSS">
+    <div class="slide-containerSS">
+      <div class="slide-wrapperSS">
+        <img class="slide" src="/assets/gamouudon.jpg" alt="画像1">
+        <img class="slide" src="/assets/hinodesemenjyo.jpg" alt="画像2">
+        <img class="slide" src="/assets/okasen.jpg" alt="画像3">
+        <img class="slide" src="/assets/yamagoeudon.jpg" alt="画像4">
+        <!-- 繰り返し -->
+        <img class="slide" src="/assets/gamouudon.jpg" alt="画像1">
+        <img class="slide" src="/assets/hinodesemenjyo.jpg" alt="画像2">
+        <img class="slide" src="/assets/okasen.jpg" alt="画像3">
+        <img class="slide" src="/assets/yamagoeudon.jpg" alt="画像4">
+      </div>
+    </div>
+  </div>
+
+  <div class="center-containerSS">
+    <div class="naiburanking3container"> 
+        <% @rank_kennais.each do |t| %>
+          <div class="rankpostblock">
+            <!-- ユーザー情報 -->
+            <!-- 投稿画像 -->
+            <div class="rankpostpicture">
+              <% if t.image.attached? %>
+                <%= image_tag t.image, class: 'rankpostimage' %>            
+              <% end %>
+            </div>
+
+            <!-- いいねボタン -->
+            <div class="rankgoodbox">
+              <div class="ranklike-button">
+                <i class="fa-solid fa-heart" style="color: violet;"><%= t.total_likes %></i>
+              </div>
+
+              <% if user_signed_in? %>
+                <% if current_user.prefecture == "香川県民" %>
+                  <%= link_to(
+                    current_user.already_liked?(t) ? tweet_kennai_path(id: t.id, tweet_id: t.id) : tweet_kennais_path(id: t.id, tweet_id: t.id),
+                    method: current_user.already_liked?(t) ? :delete : :post,
+                    class: "ranklike-button"
+                  ) do %>
+                    <i class="fa-solid fa-heart" style="color:green;"><%= t.kennais.count %></i>
+                  <% end %>
+                <% else %>
+                  <div class="ranklike-button rankdisabled">
+                    <i class="fa-solid fa-heart" style="color:gray;"><%= t.kennais.count %></i>
+                  </div>
+                <% end %>
+
+                <% if current_user.prefecture == "県外" %>
+                  <%= link_to(
+                    current_user.already_kengaied?(t) ? tweet_kengai_path(id: t.id, tweet_id: t.id) : tweet_kengais_path(id: t.id, tweet_id: t.id),
+                    method: current_user.already_kengaied?(t) ? :delete : :post,
+                    class: "ranklike-button"
+                  ) do %>
+                    <i class="fa-solid fa-heart" style="color:orange;"><%= t.kengais.count %></i>
+                  <% end %>
+                <% else %>
+                  <div class="ranklike-button rankdisabled">
+                    <i class="fa-solid fa-heart" style="color:gray;"><%= t.kengais.count %></i>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+
+            <!-- 詳細情報 -->
+            <div class="rankpostdetails">
+              <p><strong>店名:</strong> <%= blank_or_dash(t.shop_name) %></p>
+              <p><strong>場所:</strong> <%= t.shop_place %></p>
+              <p><strong>商品:</strong> <%= t.foods %></p>
+              <p><strong>価格:</strong> <%= t.price %></p>
+            </div>
+
+            <!-- CRUD操作 -->
+            <div class="rankcrud-buttons">
+              <%= link_to "詳細", tweet_path(t.id), class: "rankcrud-link" %>
+              <% if user_signed_in? && current_user.id == t.user_id %>
+                <%= link_to "編集", edit_tweet_path(t.id), class: "rankcrud-link" %>
+                <%= button_to "削除", tweet_path(t.id), method: :delete, class: "rankcrud-button" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
+
+  <div class="right-containarSS">
+    <div class="slide-containerSS">
+      <div class="slide-wrapperSS">
+        <img class="slide" src="/assets/ikekoudon.jpg" alt="画像1">
+        <img class="slide" src="/assets/wataya.jpg" alt="画像2">
+        <img class="slide" src="/assets/yanagiya.jpg" alt="画像3">
+        <img class="slide" src="/assets/nagataudon.jpg" alt="画像4">
+        <!-- 繰り返し -->
+        <img class="slide" src="/assets/ikekoudon.jpg" alt="画像1">
+        <img class="slide" src="/assets/wataya.jpg" alt="画像2">
+        <img class="slide" src="/assets/yanagiya.jpg" alt="画像3">
+        <img class="slide" src="/assets/nagataudon.jpg" alt="画像4">
+      </div>
+    </div>
+  </div>
+</div>

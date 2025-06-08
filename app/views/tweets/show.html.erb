@@ -1,5 +1,4 @@
 <div class="postlist">
-  <h1 class="main-title">THE BEST UDON</h1>
   <h3 class="sub-title">うどん詳細ページ</h3>
   <div class="nav-links">
     <%= link_to "うどん投稿へ", new_tweet_path, class: "nav-link" %>
@@ -11,16 +10,36 @@
     <% if @tweet.image.attached? %>
       <%= image_tag @tweet.image, class: 'udon-image' %>
     <% end %>
-    <%= link_to (current_user.already_liked?(@tweet) ? tweet_kennai_path(id: @tweet.id, tweet_id: @tweet.id) : tweet_kennais_path(id: @tweet.id, tweet_id: @tweet.id)),
-                method: (current_user.already_liked?(@tweet) ? :delete : :post), class: "like-button kennaigood" do %>
-      <i class="fa-solid fa-heart"></i>
-      <span><%= @tweet.kennais.count %></span>
+    <% if current_user.prefecture == "香川県民" %>
+      <%= link_to (current_user.already_liked?(@tweet) ? tweet_kennai_path(id: @tweet.id, tweet_id: @tweet.id) : tweet_kennais_path(id: @tweet.id, tweet_id: @tweet.id)),
+                  method: (current_user.already_liked?(@tweet) ? :delete : :post), class: "like-button kennaigood" do %>
+        <i class="fa-solid fa-heart"
+        style="color:red;"></i>
+        <span><%= @tweet.kennais.count %></span>
+      <% end %>
+    <% else %>
+      <div class="like-button kennaigood">
+        <i class="fa-solid fa-heart"
+        style="color:gray;"></i>
+        <span><%= @tweet.kennais.count %></span>
+      </div>
     <% end %>
-    <%= link_to (current_user.already_kengaied?(@tweet) ? tweet_kengai_path(id: @tweet.id, tweet_id: @tweet.id) : tweet_kengais_path(id: @tweet.id, tweet_id: @tweet.id)),
-                method: (current_user.already_kengaied?(@tweet) ? :delete : :post), class: "like-button kengaiigood" do %>
-      <i class="fa-solid fa-heart"></i>
-      <span><%= @tweet.kengais.count %></span>
+
+    <% if current_user.prefecture == "県外" %>
+      <%= link_to (current_user.already_kengaied?(@tweet) ? tweet_kengai_path(id: @tweet.id, tweet_id: @tweet.id) : tweet_kengais_path(id: @tweet.id, tweet_id: @tweet.id)),
+                  method: (current_user.already_kengaied?(@tweet) ? :delete : :post), class: "like-button kengaiigood" do %>
+        <i class="fa-solid fa-heart"
+        style="color:red;"></i>
+        <span><%= @tweet.kengais.count %></span>
+        <% end %>
+    <% else %>
+        <div class="like-button kengaigood">
+          <i class="fa-solid fa-heart"
+          style="color:gray;"></i>
+          <span><%= @tweet.kengais.count %></span>
+        </div>
     <% end %>
+
     <% if current_user&.id == @tweet.user_id %>
       <div class="action-buttons">
         <%= link_to "編集", edit_tweet_path(@tweet), class: "edit-button" %>
